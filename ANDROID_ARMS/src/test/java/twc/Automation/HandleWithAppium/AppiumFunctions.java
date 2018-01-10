@@ -58,15 +58,17 @@ public class AppiumFunctions extends Drivers{
 		Thread.sleep(5000);
 	}
 
-	public static void AppiumServerStop() throws InterruptedException{
+	public static void AppiumServerStop() throws InterruptedException, Exception{
 
-		String[] command ={"/usr/bin/killall","-KILL","node"};  
-
-		try {
-			Runtime.getRuntime().exec(command);
-		} catch (IOException e) {
-			System.out.println("Appium Server Not Yet Killed At This Time");
-		}  
+//		String[] command ={"/usr/bin/killall","-KILL","node"};  
+//
+//		try {
+//			Runtime.getRuntime().exec(command);
+//		} catch (IOException e) {
+//			System.out.println("Appium Server Not Yet Killed At This Time");
+//		}  
+		String[] command = new String[]{"sh", "-c", "lsof -P | grep ':4723' | awk '{print $2}' | xargs kill -9"};
+		Runtime.getRuntime().exec(command);
 		Thread.sleep(5000);
 	}
 
@@ -148,7 +150,7 @@ public class AppiumFunctions extends Drivers{
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static void LaunchApp() throws InterruptedException, IOException{
+	public static void LaunchApp() throws Exception{
 
 		killADB();
 		AppiumServerStop();
