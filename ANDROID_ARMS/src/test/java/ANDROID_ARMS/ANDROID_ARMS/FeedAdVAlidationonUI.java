@@ -118,6 +118,15 @@ public class FeedAdVAlidationonUI
 						 //AppFunctions.Kill_Launch_App();
 						 System.out.println("====== Validating Extended Maps&Radar page Ad TestCase End =======");	    
 					}
+					@Test(priority =8,enabled = true)
+						@Title("Validating Extended News page Ad")
+						public void Extended_Newss_page_Ad() throws Exception
+						{
+						   System.out.println("====== Validating Extended News page Ad TestCase Started =======");
+						   //scroll to news submodule and checking the News submodule ad is coming or not	
+						   AppFunctions.SwipeUp_Counter_news_submodules();	
+						   System.out.println("====== Validating Extended News page Ad TestCase End =======");
+						}
 							 
 					//Validating cold & flu Ad
 					/*@Test(priority =7,enabled = true)

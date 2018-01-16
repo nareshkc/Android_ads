@@ -885,5 +885,44 @@ public class AppiumFunctions extends Drivers{
 		System.out.println("took the failed GoRun Module BigBanner ad");
 		Assert.fail("GoRun Module BigBanner adnot present");
 		}
-	}	
+	}
+	public static void Check_submodules_news_ad() throws Exception
+	{ 
+		try
+		{
+			System.out.println("Checking for News Submodule  ad");
+			Thread.sleep(5000);
+			//WebElement submodulead=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[4]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ViewSwitcher[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]"));
+			//WebElement submodulead =Ad.findElementById("com.weather.Weather:id/ad_view_holder");
+			//WebElement submodulead=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[4]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ViewSwitcher[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]/android.view.View[1]"));
+			//WebElement submodulead=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]");
+			WebElement submodulead;
+			try{
+			 submodulead=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout[1]");
+			Thread.sleep(2000);
+		}
+		catch(Exception e)
+		{
+			submodulead=Ad.findElementById("com.weather.Weather:id/ad_view_holder");
+			Thread.sleep(2000);
+		}
+			Thread.sleep(2000);
+			if(submodulead.isDisplayed())
+			{
+				System.out.println("Newssubmodule ad present");
+				System.out.println("News submodule ad present ad present and size is"+submodulead.getSize());
+				ScreenShot("News ad","Passed");
+				System.out.println("took the submoduleAd_News screenshot");
+			}		    
+
+		}
+		catch(Exception e)
+		{
+			ScreenShot("News ad","Failed");
+			System.out.println("took the failed submoduleAd_News screenshot");
+			Assert.fail("News submodule ad is not  present");
+		}
+	}
+
+
 }

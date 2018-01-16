@@ -684,7 +684,7 @@ public class AppFunctions extends Drivers{
 					Ad.findElementById("com.weather.Weather:id/map_module_more").click();
 				}
 				AppiumFunctions.Check_submodules_Maps_ad();
-				//Ad.findElementByClassName("android.widget.ImageButton").click();
+				Ad.findElementByClassName("android.widget.ImageButton").click();
 				Thread.sleep(5000);				
 				break;
 			}
@@ -1614,6 +1614,35 @@ public static void goToTestModeSettings(String excel_sheet_name) throws Exceptio
 				}
 
 			}
+			public static void SwipeUp_Counter_news_submodules() throws Exception{
+
+				//int swipeup = Counter;
+
+				for(int i=1;i<=12 ;i++){
+					
+					Swipe();
+					
+					
+					Boolean b=verifyElement(By.id("com.weather.Weather:id/news_title"));
+					if(b==true)
+					{
+						Ad.findElementById("com.weather.Weather:id/news_grid_item_0").click();
+						AppiumFunctions.Check_submodules_news_ad();
+						Ad.findElementByClassName("android.widget.ImageButton").click();
+						Thread.sleep(5000);
+					
+						
+						break;
+					}
+					else
+					{
+						System.out.println("Module is not present scroll down");
+					}
+
+						
+					
+				}
+				}
 
 
 }
