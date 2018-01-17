@@ -128,7 +128,7 @@ public class FeedAdVAlidationonUI
 						   System.out.println("====== Validating Extended News page Ad TestCase End =======");
 						}
 						 //Validating cold & flu Ad
-						/*@Test(priority =9,enabled = true)
+						 @Test(priority =9,enabled = true)
 						 @Title("Validating Extended cold & flu page Ad")
 						 public void Extended_cold_flu_page_Ad() throws Exception
 						{
@@ -170,7 +170,7 @@ public class FeedAdVAlidationonUI
 							 //AppiumFunctions.Check_GoRun_BigbannerAd();
 							 AppiumFunctions.Clickon_Back_Button();
 							 System.out.println("====== Validating Extended GoRun TestCase End =======");	    
-						}*/
+						}
 							 
 					//Validating cold & flu Ad
 					/*@Test(priority =7,enabled = true)
