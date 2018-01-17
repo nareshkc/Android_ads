@@ -86,7 +86,7 @@ public class FeedAdVAlidationonUI
 						{
 						   System.out.println("====== Validating Extended News page Ad TestCase Started =======");
 						   //scroll to news submodule and checking the News submodule ad is coming or not	
-						   //AppFunctions.SwipeUp_Counter_news_submodules();
+						   AppFunctions.SwipeUp_Counter_news_submodules();
 						   AppiumFunctions.Check_submodules_news_ad();	
 						   System.out.println("====== Validating Extended News page Ad TestCase End =======");
 						}

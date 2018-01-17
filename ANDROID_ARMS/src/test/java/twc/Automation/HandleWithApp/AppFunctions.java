@@ -1620,7 +1620,7 @@ public static void goToTestModeSettings(String excel_sheet_name) throws Exceptio
 
 				for(int i=1;i<=12 ;i++){
 					
-					Swipe();
+					//Swipe();
 					
 					
 					Boolean b=verifyElement(By.id("com.weather.Weather:id/news_title"));
