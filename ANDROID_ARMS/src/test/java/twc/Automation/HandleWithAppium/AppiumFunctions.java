@@ -443,6 +443,33 @@ public class AppiumFunctions extends Drivers{
 			Assert.fail("feed4 ad not present");
 		}
 	}
+	
+	public static void Check_feed5_ad() throws Exception
+	{ 
+		WebElement feedad=null;
+		try{		
+			System.out.println("Checking for feed5 ad");
+			//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
+			//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ViewSwitcher[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]")); 
+			feedad=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]");
+			Thread.sleep(2000);
+			if(feedad.isDisplayed())
+			{
+				System.out.println("feed5 ad present");
+				//System.out.println("fee5 ad present and size is"+feedad.getSize());
+				ScreenShot("feed_5","Passed");
+				System.out.println("took the feed5 screenshot");
+			}		    		  	
+
+		}
+		catch(Exception e)
+		{
+			ScreenShot("feed_5","Failed");
+			System.out.println("took the failed feed5 screen shot");
+			Assert.fail("feed5 ad not present");		
+			}
+
+	}
 
 	public static void Check_bb_ad()
 	{ try{

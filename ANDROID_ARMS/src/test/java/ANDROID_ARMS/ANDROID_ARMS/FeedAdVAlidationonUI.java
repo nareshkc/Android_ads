@@ -77,12 +77,23 @@ public class FeedAdVAlidationonUI
 						System.out.println("====== Validating feed_4 Ad TestCase Started =======");
 						//checking the feed_4 ad is coming or not
 						AppFunctions.SwipeUp_Counter(1);
-						AppiumFunctions.Check_feed4_ad();
-						
+						AppiumFunctions.Check_feed4_ad();						
 						System.out.println("====== Validating feed_4 Ad TestCase End =======");
 					}
-					//Validating Extended hourly page Ad
+					//Validating feed_5 Ad
 					@Test(priority =5,enabled = true)
+					@Title("Validating feed_5 Ad call")
+					public void Validating_feed5() throws Exception
+					{	
+						System.out.println("====== Validating feed_5 Ad TestCase Started =======");
+						//checking the feed_5 ad is coming or not
+						AppFunctions.SwipeUp_Counter(2);
+						AppiumFunctions.Check_feed5_ad();
+						//AppFunctions.Kill_Launch_App();
+						System.out.println("====== Validating feed_5 Ad TestCase End =======");
+					}
+					//Validating Extended hourly page Ad
+					@Test(priority =6,enabled = true)
 					@Title("Validating Extended hourly page Ad")
 					public void Extended_hourly_page_Ad() throws Exception
 					{
@@ -99,7 +110,7 @@ public class FeedAdVAlidationonUI
 						System.out.println("====== Validating Extended Hourly page Ad TestCase End =======");
 					}
 					//Validating Extended Daily page Ad
-					@Test(priority =6,enabled = true)
+					@Test(priority =7,enabled = true)
 					@Title("Validating Extended Daily page Ad")
 					public void Extended_Daily_page_Ad() throws Exception
 					{
@@ -109,7 +120,7 @@ public class FeedAdVAlidationonUI
 					  System.out.println("====== Validating Extended Daily page Ad TestCase End =======");    
 					}
 					//Validating Extended Maps&Radar page Ad
-					 @Test(priority =7,enabled = true)
+					 @Test(priority =8,enabled = true)
 					 @Title("Validating Extended Maps&Radar page Ad")
 					 public void Extended_Maps_Radar_page_Ad() throws Exception
 					{
@@ -118,7 +129,7 @@ public class FeedAdVAlidationonUI
 						 //AppFunctions.Kill_Launch_App();
 						 System.out.println("====== Validating Extended Maps&Radar page Ad TestCase End =======");	    
 					}
-					@Test(priority =8,enabled = true)
+					@Test(priority =9,enabled = true)
 						@Title("Validating Extended News page Ad")
 						public void Extended_News_page_Ad() throws Exception
 						{
@@ -128,7 +139,7 @@ public class FeedAdVAlidationonUI
 						   System.out.println("====== Validating Extended News page Ad TestCase End =======");
 						}
 						 //Validating cold & flu Ad
-						 /*@Test(priority =9,enabled = true)
+						 /*@Test(priority =10,enabled = true)
 						 @Title("Validating Extended cold & flu page Ad")
 						 public void Extended_cold_flu_page_Ad() throws Exception
 						{
@@ -145,7 +156,7 @@ public class FeedAdVAlidationonUI
 						}
 						
 						//Validating Allergy Ad
-						@Test(priority =10,enabled = true)
+						@Test(priority =11,enabled = true)
 						 @Title("Validating Extended allergy page Ad")
 						 public void Extended_allergy_Module_page_Ad() throws Exception
 						{
@@ -159,7 +170,7 @@ public class FeedAdVAlidationonUI
 						}
 							
 						//Validating GoRunAd 
-						@Test(priority =11,enabled = true)
+						@Test(priority =12,enabled = true)
 						 @Title("Validating Extended GoRun page Ad")
 						 public void Extended_GoRun_Module_page_Ad() throws Exception
 						{
