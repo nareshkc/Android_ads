@@ -88,6 +88,7 @@ public class FeedAdVAlidationonUI
 						   //scroll to news submodule and checking the News submodule ad is coming or not	
 						   AppFunctions.SwipeUp_Counter_news_submodules();
 						   AppiumFunctions.Check_submodules_news_ad();	
+						   AppiumFunctions.Clickon_Back_Button();
 						   System.out.println("====== Validating Extended News page Ad TestCase End =======");
 						}
 					//Validating feed_5 Ad
