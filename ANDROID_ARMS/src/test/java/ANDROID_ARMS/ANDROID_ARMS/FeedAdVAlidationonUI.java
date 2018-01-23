@@ -52,7 +52,7 @@ public class FeedAdVAlidationonUI
 			System.out.println("====== Validating feed_1 Ad TestCase End =========");
 		}
 		//Validating feed_2 Ad
-		/*	@Test(priority =2,enabled = true)
+			@Test(priority =2,enabled = true)
 			@Title("Validating feed_2 Ad call")
 			public void Validating_feed2() throws Exception
 			{
@@ -163,7 +163,7 @@ public class FeedAdVAlidationonUI
 						 AppFunctions.SwipeUp_Counter_Maps_submodule();
 						 //AppFunctions.Kill_Launch_App();
 						 System.out.println("====== Validating Extended Maps&Radar page Ad TestCase End =======");	    
-					}*/
+					}
 							 
 					/* @Test(priority =9,enabled = true)
 						@Title("Validating Extended News page Ad")
