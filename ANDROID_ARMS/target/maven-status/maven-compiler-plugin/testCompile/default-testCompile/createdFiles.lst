@@ -1,0 +1,16 @@
+twc/Automation/HandleWithAppium/AppiumFunctions.class
+twc/Automation/General/Functions.class
+twc/Automation/RetryAnalyzer/Retry.class
+twc/Automation/RetryAnalyzer/RetryListener.class
+twc/Automation/ReadDataFromFile/write_excel_data.class
+twc/Automation/ReadDataFromFile/read_excel_data.class
+twc/Automation/HandleWithCharles/CharlesFunctions.class
+twc/Automation/ReadDataFromFile/read_xml_data_into_buffer.class
+ANDROID_ARMS/ANDROID_ARMS/FeedAdVAlidationonUITest.class
+twc/Automation/Driver/read_Property_File_Info.class
+twc/Automation/RetryAnalyzer/TestListener.class
+twc/Automation/General/loginModule.class
+twc/Automation/General/DeviceStatus.class
+ANDROID_ARMS/ANDROID_ARMS/FeedAdVAlidationonUI.class
+twc/Automation/Driver/Drivers.class
+twc/Automation/HandleWithApp/AppFunctions.class

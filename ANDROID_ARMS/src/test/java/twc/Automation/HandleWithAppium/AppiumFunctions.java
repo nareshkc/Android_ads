@@ -60,13 +60,13 @@ public class AppiumFunctions extends Drivers{
 
 	public static void AppiumServerStop() throws InterruptedException, Exception{
 
-//		String[] command ={"/usr/bin/killall","-KILL","node"};  
-//
-//		try {
-//			Runtime.getRuntime().exec(command);
-//		} catch (IOException e) {
-//			System.out.println("Appium Server Not Yet Killed At This Time");
-//		}  
+		//		String[] command ={"/usr/bin/killall","-KILL","node"};  
+		//
+		//		try {
+		//			Runtime.getRuntime().exec(command);
+		//		} catch (IOException e) {
+		//			System.out.println("Appium Server Not Yet Killed At This Time");
+		//		}  
 		String[] command = new String[]{"sh", "-c", "lsof -P | grep ':4723' | awk '{print $2}' | xargs kill -9"};
 		Runtime.getRuntime().exec(command);
 		Thread.sleep(5000);
@@ -88,10 +88,10 @@ public class AppiumFunctions extends Drivers{
 
 		CommandLine command = new CommandLine("/usr/local/bin/node");
 		command.addArgument("/Applications/Appium.app/Contents/Resources/app/node_modules/appium/build/lib/main.js", false);
-//		CommandLine command = new CommandLine("/Applications/Appium.app/Contents/Resources/node/bin/node");
-//		command.addArgument("/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js", false);
-		
-		
+		//		CommandLine command = new CommandLine("/Applications/Appium.app/Contents/Resources/node/bin/node");
+		//		command.addArgument("/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js", false);
+
+
 		command.addArgument("--address", false);
 		command.addArgument("127.0.0.1");
 		command.addArgument("--port", false);
@@ -213,56 +213,56 @@ public class AppiumFunctions extends Drivers{
 
 		//try {
 
-			String[][] capabilitydata = read_excel_data.exceldataread("Capabilities");
-			DesiredCapabilities capabilities = new DesiredCapabilities();
+		String[][] capabilitydata = read_excel_data.exceldataread("Capabilities");
+		DesiredCapabilities capabilities = new DesiredCapabilities();
 
-			/* --- Start Android Device Capabilities --- */
-			if(Cap == 2){
-				capabilities.setCapability(capabilitydata[1][0], capabilitydata[1][Cap]);
-				capabilities.setCapability(capabilitydata[2][0], capabilitydata[2][Cap]); 
-				capabilities.setCapability(capabilitydata[3][0], capabilitydata[3][Cap]);
-				capabilities.setCapability(capabilitydata[7][0], capabilitydata[7][Cap]); 
-				capabilities.setCapability(capabilitydata[9][0], capabilitydata[9][Cap]);
-				capabilities.setCapability(capabilitydata[10][0],capabilitydata[10][Cap]);
-				capabilities.setCapability(capabilitydata[12][0],capabilitydata[12][Cap]);
-				capabilities.setCapability("appActivity","com.weather.Weather.app.SplashScreenActivity");
-				System.out.println("App : "+capabilitydata[10][Cap]);
-				capabilities.setCapability(capabilitydata[13][0],capabilitydata[13][Cap]);
-				capabilities.setCapability(capabilitydata[14][0],capabilitydata[14][Cap]);
-				//Thread.sleep(50000);
-				Ad = new AndroidDriver(new URL(capabilitydata[15][Cap]), capabilities);
-				Thread.sleep(50000);
+		/* --- Start Android Device Capabilities --- */
+		if(Cap == 2){
+			capabilities.setCapability(capabilitydata[1][0], capabilitydata[1][Cap]);
+			capabilities.setCapability(capabilitydata[2][0], capabilitydata[2][Cap]); 
+			capabilities.setCapability(capabilitydata[3][0], capabilitydata[3][Cap]);
+			capabilities.setCapability(capabilitydata[7][0], capabilitydata[7][Cap]); 
+			capabilities.setCapability(capabilitydata[9][0], capabilitydata[9][Cap]);
+			capabilities.setCapability(capabilitydata[10][0],capabilitydata[10][Cap]);
+			capabilities.setCapability(capabilitydata[12][0],capabilitydata[12][Cap]);
+			capabilities.setCapability("appActivity","com.weather.Weather.app.SplashScreenActivity");
+			System.out.println("App : "+capabilitydata[10][Cap]);
+			capabilities.setCapability(capabilitydata[13][0],capabilitydata[13][Cap]);
+			capabilities.setCapability(capabilitydata[14][0],capabilitydata[14][Cap]);
+			//Thread.sleep(50000);
+			Ad = new AndroidDriver(new URL(capabilitydata[15][Cap]), capabilities);
+			Thread.sleep(50000);
+		}
+		/* ---End Android Device Capabilities --- */
+		Ad.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		//####added ths to handle allow button
+		Thread.sleep(20000);
+		try{
+			if((Ad.findElementByName("Allow")).isDisplayed()){
+				Ad.findElementByName("Allow").click();
 			}
-			/* ---End Android Device Capabilities --- */
-			Ad.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			//####added ths to handle allow button
-			Thread.sleep(20000);
-			try{
-				if((Ad.findElementByName("Allow")).isDisplayed()){
-					Ad.findElementByName("Allow").click();
-				}
-			}catch(Exception e){
-				System.out.println("Location already set");
+		}catch(Exception e){
+			System.out.println("Location already set");
+		}
+
+
+		//######
+		try{
+			if((Ad.findElementByName("OK")).isDisplayed()){
+				Ad.findElementByName("OK").click();
+			}else if((Ad.findElementByName("Continue")).isDisplayed()){
+				Ad.findElementByName("Continue").click();
+			}else if((Ad.findElementByName("Allow")).isDisplayed()){
+				Ad.findElementByName("Allow").click();
 			}
+		}catch(Exception e){
 
-
-			//######
-			try{
-				if((Ad.findElementByName("OK")).isDisplayed()){
-					Ad.findElementByName("OK").click();
-				}else if((Ad.findElementByName("Continue")).isDisplayed()){
-					Ad.findElementByName("Continue").click();
-				}else if((Ad.findElementByName("Allow")).isDisplayed()){
-					Ad.findElementByName("Allow").click();
-				}
-			}catch(Exception e){
-
-			}
-			System.out.println("Capabilities have been launched  with fullreset ");
-			Thread.sleep(5000);
+		}
+		System.out.println("Capabilities have been launched  with fullreset ");
+		Thread.sleep(5000);
 		//} catch (Exception e) 
 		//{
-			System.out.println("Unable To Launch The Appium Capabilities");
+		System.out.println("Unable To Launch The Appium Capabilities");
 		//}
 	}
 	//Kill and relaunch the app
@@ -323,6 +323,7 @@ public class AppiumFunctions extends Drivers{
 	{ 	
 		WebElement feedad=null;
 		try{
+			logStep("Checking for feed1 ad");
 			System.out.println("Checking for feed1 ad");
 			//WebElement feedad= Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
 			//feedad=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ViewSwitcher[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]");
@@ -332,22 +333,25 @@ public class AppiumFunctions extends Drivers{
 			Thread.sleep(2000);
 			if(feedad.isDisplayed())
 			{
+				logStep("feed_1 ad present");
 				System.out.println("feed1 ad present");
 				//System.out.println("feed1 ad present and size is"+feedad.getSize());
-
 				//screenShot("feed1");
 				ScreenShot("feed_1","Passed");
-				System.out.println("took the feed1 screen shot");
-
+				logStep("took the passed screenshot");
+				System.out.println("took the passed feed1 screen shot");
 			}		   
 		}
 		catch(Exception e)
 		{
+			logStep("feed_1 ad not present on the screen");
 			//screenShot_fail("feed1");
 			ScreenShot("feed_1","Failed");
+			attachScreen();
+			logStep("took the failed feed1 screen shot");
 			System.out.println("took the failed feed1 screen shot");
 			Assert.fail("feed1 ad not present");
-			
+
 		}
 	}	
 	public static void gettingfeed1_locators()
@@ -366,6 +370,7 @@ public class AppiumFunctions extends Drivers{
 	{
 		WebElement feedad=null;
 		try{
+			logStep("Checking for feed2 ad");
 			System.out.println("Checking for feed2 ad");
 			Thread.sleep(5000);
 			//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
@@ -374,20 +379,24 @@ public class AppiumFunctions extends Drivers{
 			Thread.sleep(2000);
 			if(feedad.isDisplayed())
 			{
+				logStep("feed_2 ad present");
 				System.out.println("feed2 ad present");
-				System.out.println("feed2 ad present and size is"+feedad.getSize());
+				//System.out.println("feed2 ad present and size is"+feedad.getSize());
 				//screenShot("feed2");
 				ScreenShot("feed_2","Passed");
+				logStep("took the passed screenshot");
 				System.out.println("took the feed2 screenshot");
 			}		    
 		}
 		catch(Exception e)
 		{
+			logStep("feed_2 ad not present on the screen");
 			//screenShot_fail("feed2");
 			ScreenShot("feed_2","Failed");
+			attachScreen();
 			System.out.println("took the failed feed2 screen shot");
 			Assert.fail("feed2 ad not present");
-			
+
 		}
 	}
 	public static void Check_feed3_ad() throws Exception
@@ -405,7 +414,7 @@ public class AppiumFunctions extends Drivers{
 			if(feedad.isDisplayed())
 			{
 				System.out.println("feed3 ad present");
-				System.out.println("feed3 ad present and size is"+feedad.getSize());
+				//System.out.println("feed3 ad present and size is"+feedad.getSize());
 				ScreenShot("feed_3","Passed");
 				System.out.println("took the feed3 screenshot");
 			}		    
@@ -413,16 +422,19 @@ public class AppiumFunctions extends Drivers{
 		}
 		catch(Exception e)
 		{
+			logStep("feed3 ad not present");
 			ScreenShot("feed_3","Failed");
-			System.out.println("took the failed feed3 screen shot");
+			attachScreen();
+			logStep("took the failed feed3 screen shot");
 			Assert.fail("feed3 ad not present");
-				
+
 		}
 	}
 	public static void Check_feed4_ad() throws Exception
 	{ 
 		WebElement feedad=null;
 		try{
+			logStep("Checking for feed4 ad");
 			System.out.println("Checking for feed4 ad");
 			//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
 			//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ViewSwitcher[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]")); 
@@ -430,6 +442,7 @@ public class AppiumFunctions extends Drivers{
 			Thread.sleep(2000);
 			if(feedad.isDisplayed())
 			{
+				logStep("feed4 ad present");
 				System.out.println("feed4 ad present");
 				//System.out.println("fee4 ad present and size is"+feedad.getSize());
 				ScreenShot("feed_4","Passed");
@@ -438,16 +451,19 @@ public class AppiumFunctions extends Drivers{
 		}
 		catch(Exception e)
 		{
+			logStep("feed4 ad not present");
 			ScreenShot("feed_4","Failed");
+			attachScreen();
+			logStep("took the failed feed4 screen shot");
 			System.out.println("took the failed feed4 screen shot");
 			Assert.fail("feed4 ad not present");
 		}
 	}
-	
 	public static void Check_feed5_ad() throws Exception
 	{ 
 		WebElement feedad=null;
 		try{		
+			logStep("Checking for feed5 ad");
 			System.out.println("Checking for feed5 ad");
 			//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
 			//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ViewSwitcher[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]")); 
@@ -455,19 +471,24 @@ public class AppiumFunctions extends Drivers{
 			Thread.sleep(2000);
 			if(feedad.isDisplayed())
 			{
+				logStep("feed5 ad present");
 				System.out.println("feed5 ad present");
 				//System.out.println("fee5 ad present and size is"+feedad.getSize());
 				ScreenShot("feed_5","Passed");
+				logStep("took the passed feed_5 screenshot");
 				System.out.println("took the feed5 screenshot");
 			}		    		  	
 
 		}
 		catch(Exception e)
 		{
+			logStep("feed5 ad not present");	
+			System.out.println("feed5 ad not present");
 			ScreenShot("feed_5","Failed");
+			attachScreen();
+			logStep("took the failed feed5 screen shot");
 			System.out.println("took the failed feed5 screen shot");
-			Assert.fail("feed5 ad not present");		
-			}
+			Assert.fail("feed5 ad not present");		}
 
 	}
 
@@ -502,7 +523,8 @@ public class AppiumFunctions extends Drivers{
 	{ 
 		try
 		{
-			System.out.println("Checking for Hourly Submodule  ad");
+			logStep("Checking for Hourly Submodule ad");
+			System.out.println("Checking for Hourly Submodule ad");
 			Thread.sleep(5000);
 			//WebElement submodulead=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[4]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ViewSwitcher[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]"));
 			//WebElement submodulead =Ad.findElementById("com.weather.Weather:id/ad_view_holder");
@@ -513,16 +535,22 @@ public class AppiumFunctions extends Drivers{
 			Thread.sleep(2000);
 			if(submodulead.isDisplayed())
 			{
+				logStep("Hourly submodule ad present");
 				System.out.println("Hourly submodule ad present");
-				System.out.println("Hourly submodule ad present ad present and size is"+submodulead.getSize());
+				//System.out.println("Hourly submodule ad present ad present and size is"+submodulead.getSize());
 				ScreenShot("Hourly ad","Passed");
+				logStep("took the passed submoduleAd_Hourly screenshot");
 				System.out.println("took the submoduleAd_Hourly screenshot");
 			}		    
 
 		}
 		catch(Exception e)
 		{
+			logStep("Hourly submodule ad is not present");
+			System.out.println("Hourly submodule ad is not present");
 			ScreenShot("Hourly ad","Failed");
+			attachScreen();
+			logStep("took the failed Hourly submodule ad");
 			System.out.println("took the failed submoduleAd_Hourly screenshot");
 			Assert.fail("Hourly submodule ad is not  present");
 		}
@@ -530,6 +558,7 @@ public class AppiumFunctions extends Drivers{
 	public static void Check_submodules_Daily_ad() throws Exception
 	{ 
 		try{
+			logStep("Checking for Daily Submodule ad");
 			System.out.println("Checking for Daily Submodule  ad");
 			Thread.sleep(5000);
 			//WebElement submodulead=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ViewSwitcher[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]"));
@@ -539,10 +568,11 @@ public class AppiumFunctions extends Drivers{
 			WebElement submodulead=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]");
 			Thread.sleep(2000);
 			if(submodulead.isDisplayed())
-			{
+			{   logStep("Daily submodule ad present");
 				System.out.println("Daily submodule ad present");
-				System.out.println("Daily submodule ad present ad present and size is"+submodulead.getSize());
+				//System.out.println("Daily submodule ad present ad present and size is"+submodulead.getSize());
 				ScreenShot("Daily ad","Passed");
+				logStep("took the submoduleAd_Daily screenshot");
 				System.out.println("took the submoduleAd_Daily screenshot");
 			}		    
 		}
@@ -551,7 +581,11 @@ public class AppiumFunctions extends Drivers{
 			/*softAssert.fail("Daily submodule ad is not  present");
 			screenShot_fail("submoduleAd_Daily");
 			System.out.println("took the failed submoduleAd_Daily screenshot");*/
+			logStep("Daily page ad is not presented on the screen");
+			System.out.println("Daily page ad is not presented on the screen");
 			ScreenShot("Daily ad","Failed");
+			attachScreen();
+			logStep("took the failed submoduleAd_Daily screenshot");
 			System.out.println("took the failed submoduleAd_Daily screenshot");
 			Assert.fail("Daily submodule ad is not  present");
 		}
@@ -559,6 +593,7 @@ public class AppiumFunctions extends Drivers{
 	public static void Check_submodules_Maps_ad() throws Exception
 	{ 
 		try{
+			logStep("Checking for Maps Submodule ad");
 			System.out.println("Checking for Maps Submodule  ad");
 			Thread.sleep(5000);
 			//WebElement submodulead=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[4]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ViewSwitcher[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]"));
@@ -571,16 +606,21 @@ public class AppiumFunctions extends Drivers{
 
 			if(submodulead.isDisplayed())
 			{
+				logStep("Maps submodule ad present");
 				System.out.println("Maps submodule ad present");
-				System.out.println("Maps submodule ad present ad present and size is"+submodulead.getSize());
+				//System.out.println("Maps submodule ad present ad present and size is"+submodulead.getSize());			
 				ScreenShot("Maps ad","Passed");
+				System.out.println("took the passed submoduleAd_Maps screenshot");
 				System.out.println("took the submoduleAd_Maps screenshot");
 			}		    
 		}
 		catch(Exception e)
 		{
-			
-			ScreenShot("Maps ad","Passed");
+			logStep("Maps page ad is not presented on the screen");
+			System.out.println("Maps page ad is not presented on the screen");
+			ScreenShot("Maps ad","Failed");
+			attachScreen();
+			logStep("took the failed submoduleAd_Maps screenshot");
 			System.out.println("took the failed submoduleAd_Maps screenshot");
 			Assert.fail("Maps submodule ad is not  present");
 		}
@@ -598,8 +638,8 @@ public class AppiumFunctions extends Drivers{
 			homelocation=Ad.findElementById("com.weather.Weather:id/txt_location_name").getAttribute("name");
 			//				Ad.findElement(By.id("com.weather.Weather:id/txt_location_name")).sendKeys(homelocation);
 			//				Thread.sleep(5000);
-			
-		
+
+
 			System.out.println("App Launched with Home loation::" +homelocation);
 		}
 		else
@@ -616,40 +656,40 @@ public class AppiumFunctions extends Drivers{
 		}
 
 	}
-	
-	
+
+
 	//read Build folder details from Build Folder
-		public static void CheckBuildFolder(File folder) throws Exception {
-			//readExcelValues.excelValues("Smoke","Paths");
+	public static void CheckBuildFolder(File folder) throws Exception {
+		//readExcelValues.excelValues("Smoke","Paths");
 
-			String Foldername = ScreenShot+"/"+CharlesFunctions.ver;
-			folder = new File(Foldername);
+		String Foldername = ScreenShot+"/"+CharlesFunctions.ver;
+		folder = new File(Foldername);
 
 
-			for(int i =0;i<=25;i++){
+		for(int i =0;i<=25;i++){
+			if(i==0){
+				folder = new File(Foldername);
+			}else{
+				folder = new File(Foldername+"_"+i);
+			}
+			if(folder.exists()){
+				System.out.println("Build Number is exist "+CharlesFunctions.ver);
+				System.out.println("Folder is :"+folder.toString());
+
+			}else{
 				if(i==0){
-					folder = new File(Foldername);
+					System.out.println("Build Number is "+CharlesFunctions.ver);
+					CharlesFunctions.ver=CharlesFunctions.ver;
+					break;
 				}else{
-					folder = new File(Foldername+"_"+i);
-				}
-				if(folder.exists()){
-					System.out.println("Build Number is exist "+CharlesFunctions.ver);
-					System.out.println("Folder is :"+folder.toString());
-
-				}else{
-					if(i==0){
-						System.out.println("Build Number is "+CharlesFunctions.ver);
-						CharlesFunctions.ver=CharlesFunctions.ver;
-						break;
-					}else{
-						System.out.println("Build Number is "+CharlesFunctions.ver+"_"+i);
-						CharlesFunctions.ver=CharlesFunctions.ver+"_"+i;
-						break;
-					}
+					System.out.println("Build Number is "+CharlesFunctions.ver+"_"+i);
+					CharlesFunctions.ver=CharlesFunctions.ver+"_"+i;
+					break;
 				}
 			}
-
 		}
+
+	}
 	public static void ScreenShot(String Adtype,String ScreenType) throws Exception{
 		ScreenShot = System.getProperty("user.dir")+"/Screenshots";
 		if(ScreenType.equals("Passed")){
@@ -681,34 +721,34 @@ public class AppiumFunctions extends Drivers{
 			ioException.printStackTrace();
 		}
 	}
-	
+
 	public static void Check_Allergy_spotAd() throws Exception
 	{ 
 		try
 		{
-		System.out.println("Checking for Allergy module spotlight ad");
-		Thread.sleep(5000);
-		//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
-		//WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]"));
-		//Thread.sleep(2000);
-		WebElement AllergyModfriestad;
-		try{
-			AllergyModfriestad=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout[1]");
-			Thread.sleep(2000);
+			System.out.println("Checking for Allergy module spotlight ad");
+			Thread.sleep(5000);
+			//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
+			//WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]"));
+			//Thread.sleep(2000);
+			WebElement AllergyModfriestad;
+			try{
+				AllergyModfriestad=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout[1]");
+				Thread.sleep(2000);
+			}
+			catch(Exception e)
+			{
+				AllergyModfriestad=Ad.findElementById("com.weather.Weather:id/ad_view_holder");
+				Thread.sleep(2000);
+			}
+			if(AllergyModfriestad.isDisplayed())
+			{
+				System.out.println("Allergy Module spotlight ad present");
+				System.out.println("Allergy Module spotlight ad present and size is"+AllergyModfriestad.getSize());
+				ScreenShot("Allergy Spotlight ad","Passed");
+				System.out.println("took the Allergy module spotlight ad screenshot");
+			}		    		  	
 		}
-		catch(Exception e)
-		{
-			AllergyModfriestad=Ad.findElementById("com.weather.Weather:id/ad_view_holder");
-			Thread.sleep(2000);
-		}
-		if(AllergyModfriestad.isDisplayed())
-	    {
-	    	System.out.println("Allergy Module spotlight ad present");
-	    	System.out.println("Allergy Module spotlight ad present and size is"+AllergyModfriestad.getSize());
-	    	ScreenShot("Allergy Spotlight ad","Passed");
-	    	System.out.println("took the Allergy module spotlight ad screenshot");
-	    }		    		  	
-	}
 		catch(Exception e)
 		{
 			ScreenShot("Allergy Spotlight ad","Failed");
@@ -716,89 +756,89 @@ public class AppiumFunctions extends Drivers{
 			Assert.fail("Allergy Module spotlight ad not present");
 		}
 	}
-	
+
 	public static void Check_Cold_Flu_spotAd() throws Exception
 	{ 
 		try
 		{
-		System.out.println("Checking for Cold&Flu module spot light ad");
-		Thread.sleep(5000);
-		//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
-		//WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]"));
-		//Thread.sleep(2000);
-		WebElement AllergyModfriestad;
-		try{
-			AllergyModfriestad=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout[1]");
-			Thread.sleep(2000);
+			System.out.println("Checking for Cold&Flu module spot light ad");
+			Thread.sleep(5000);
+			//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
+			//WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]"));
+			//Thread.sleep(2000);
+			WebElement AllergyModfriestad;
+			try{
+				AllergyModfriestad=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout[1]");
+				Thread.sleep(2000);
+			}
+			catch(Exception e)
+			{
+				AllergyModfriestad=Ad.findElementById("com.weather.Weather:id/ad_view_holder");
+				Thread.sleep(2000);
+			}
+			if(AllergyModfriestad.isDisplayed())
+			{
+				System.out.println("Cold&Flu Module spot light present");
+				//System.out.println("Cold&Flu Module spot light present and size is"+AllergyModfriestad.getSize());
+				ScreenShot("Cold & Flu Spotlight ad","Passed");
+				System.out.println("took the Cold&Flu module spot light screenshot");
+			}		    		  
+
 		}
 		catch(Exception e)
 		{
-			AllergyModfriestad=Ad.findElementById("com.weather.Weather:id/ad_view_holder");
-			Thread.sleep(2000);
-		}
-		if(AllergyModfriestad.isDisplayed())
-	    {
-	    	System.out.println("Cold&Flu Module spot light present");
-	    	//System.out.println("Cold&Flu Module spot light present and size is"+AllergyModfriestad.getSize());
-	    	ScreenShot("Cold & Flu Spotlight ad","Passed");
-	    	System.out.println("took the Cold&Flu module spot light screenshot");
-	    }		    		  
-	
-	}
-		catch(Exception e)
-		{
-		    ScreenShot("Cold & Flu Spotlight ad","Failed");
+			ScreenShot("Cold & Flu Spotlight ad","Failed");
 			System.out.println("took the failed Cold&Flu Module spot light ad screen shot");
 			Assert.fail("Cold&Flu Module spot light ad not present");
 		}
 	}
 
-	
+
 	public static void Check_Allergy_BigbannerAd() throws Exception
 	{ 
 		try
 		{
-		System.out.println("Checking for Allergy module BigBanner ad");
-		Thread.sleep(5000);
-		//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
-		WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
-		Thread.sleep(2000);
-	    if(AllergyModfriestad.isDisplayed())
-	    {
-	    	System.out.println("Allergy Module BigBanner ad present");
-	    	System.out.println("Allergy Module BigBanner ad present and size is"+AllergyModfriestad.getSize());
-	    	ScreenShot("Allergy Module BigBanner ad","Passed");
-	    	System.out.println("took the Allergy Module BigBanner adscreenshot");
-	    }		    		  
-	
-	}
+			System.out.println("Checking for Allergy module BigBanner ad");
+			Thread.sleep(5000);
+			//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
+			WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
+			Thread.sleep(2000);
+			if(AllergyModfriestad.isDisplayed())
+			{
+				System.out.println("Allergy Module BigBanner ad present");
+				System.out.println("Allergy Module BigBanner ad present and size is"+AllergyModfriestad.getSize());
+				ScreenShot("Allergy Module BigBanner ad","Passed");
+				System.out.println("took the Allergy Module BigBanner adscreenshot");
+			}		    		  
+
+		}
 		catch(Exception e)
 		{
 			ScreenShot("Allergy Module BigBanner ad","Failed");
-			
+
 			System.out.println("took the failed Allergy Module BigBanner ad");
 			Assert.fail("Allergy Module BigBanner adnot present");
 		}
 	}
-	
+
 	public static void Check_Cold_Flu_BigbannertAd() throws Exception
 	{ 
 		try
 		{
-		System.out.println("Checking for Cold_Flu module BigBanner ad");
-		Thread.sleep(9000);
-		//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
-		WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
-		Thread.sleep(2000);
-	    if(AllergyModfriestad.isDisplayed())
-	    {
-	    	System.out.println("Cold_Flu Module BigBanner ad present");
-	    	System.out.println("Cold_Flu Module BigBanner ad present and size is"+AllergyModfriestad.getSize());
-	    	ScreenShot("Cold_Flu Module BigBanner ad","Passed");
-	    	System.out.println("took the Cold_Flu Module BigBanner ad screenshot");
-	    }		    		  
-	
-	}
+			System.out.println("Checking for Cold_Flu module BigBanner ad");
+			Thread.sleep(9000);
+			//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
+			WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
+			Thread.sleep(2000);
+			if(AllergyModfriestad.isDisplayed())
+			{
+				System.out.println("Cold_Flu Module BigBanner ad present");
+				System.out.println("Cold_Flu Module BigBanner ad present and size is"+AllergyModfriestad.getSize());
+				ScreenShot("Cold_Flu Module BigBanner ad","Passed");
+				System.out.println("took the Cold_Flu Module BigBanner ad screenshot");
+			}		    		  
+
+		}
 		catch(Exception e)
 		{
 			ScreenShot("Cold_Flu Module BigBanner ad","Failed");
@@ -810,19 +850,21 @@ public class AppiumFunctions extends Drivers{
 	public static void Clickon_Back_Button() throws Exception 
 	{
 		try{
-		Ad.findElementByClassName("android.widget.ImageButton").click();
-		Thread.sleep(3000);
+			logStep("Clicking on backbuton");
+			Ad.findElementByClassName("android.widget.ImageButton").click();
+			Thread.sleep(3000);
 		}
 		catch(Exception e )
 		{
+			logStep("Clicking on backbuton");
 			Ad.findElementByClassName("android.widget.ImageButton").click();
 			Thread.sleep(3000);
 		}
 	}
-	
+
 	//Delete Screenshots session xml files
 	public static void delete_screenshots() throws Exception{
-		
+
 		ScreenShot = System.getProperty("user.dir")+"/screenshots";
 
 		String downloadPath = ScreenShot+"/Failed";
@@ -841,8 +883,8 @@ public class AppiumFunctions extends Drivers{
 		}
 
 	}
-	
-	
+
+
 	public static void Check_Lifestyle_Module_ad() throws Exception
 	{ 
 		try{
@@ -861,7 +903,7 @@ public class AppiumFunctions extends Drivers{
 		}
 		catch(Exception e)
 		{
-			
+
 			ScreenShot("Lifesyle module ad","Passed");
 			System.out.println("took the failed Lifesyle module ad screenshot");
 			Assert.fail("Lifesyle module ad is not  present");
@@ -869,9 +911,9 @@ public class AppiumFunctions extends Drivers{
 	}
 	public static void clickallergy()
 	{
-	 Ad.findElementByName("Allergy").click();
+		Ad.findElementByName("Allergy").click();
 	}
-	
+
 	public static void clickGoRun() throws Exception
 	{
 		try{
@@ -884,70 +926,71 @@ public class AppiumFunctions extends Drivers{
 			Thread.sleep(3000);
 		}
 	}
-	
+
 	public static void Check_GoRun_spotAd() throws Exception
 	{ 
 		try
 		{
-		System.out.println("Checking for GoRun module spotlight ad");
-		Thread.sleep(5000);
-		//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
-		//WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]"));
-		//Thread.sleep(2000);
-		WebElement AllergyModfriestad;
-		try{
-			AllergyModfriestad=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout[1]");
-			Thread.sleep(2000);
+			System.out.println("Checking for GoRun module spotlight ad");
+			Thread.sleep(5000);
+			//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
+			//WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]"));
+			//Thread.sleep(2000);
+			WebElement AllergyModfriestad;
+			try{
+				AllergyModfriestad=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout[1]");
+				Thread.sleep(2000);
+			}
+			catch(Exception e)
+			{
+				AllergyModfriestad=Ad.findElementById("com.weather.Weather:id/ad_view_holder");
+				Thread.sleep(2000);
+			}
+			if(AllergyModfriestad.isDisplayed())
+			{
+				System.out.println("GoRun Module spotlight ad present");
+				System.out.println("GoRun Module spotlight ad present and size is"+AllergyModfriestad.getSize());
+				ScreenShot("GoRun Spotlight ad","Passed");
+				System.out.println("took the GoRun module spotlight ad screenshot");
+			}		    		  	
 		}
 		catch(Exception e)
 		{
-			AllergyModfriestad=Ad.findElementById("com.weather.Weather:id/ad_view_holder");
-			Thread.sleep(2000);
-		}
-		if(AllergyModfriestad.isDisplayed())
-	    {
-	    	System.out.println("GoRun Module spotlight ad present");
-	    	System.out.println("GoRun Module spotlight ad present and size is"+AllergyModfriestad.getSize());
-	    	ScreenShot("GoRun Spotlight ad","Passed");
-	    	System.out.println("took the GoRun module spotlight ad screenshot");
-	    }		    		  	
-	}
-		catch(Exception e)
-		{
-		   ScreenShot("GoRun Spotlight ad","Failed");
+			ScreenShot("GoRun Spotlight ad","Failed");
 			System.out.println("took the failed GoRun Module spotlight ad screen shot");
 			Assert.fail("GoRun Module spotlight ad not present");
 		}
 	}
-	
+
 	public static void Check_GoRun_BigbannerAd() throws Exception
 	{ try
-		{
+	{
 		System.out.println("Checking for GoRun module BigBanner ad");
- 		Thread.sleep(5000);
+		Thread.sleep(5000);
 		//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
 		WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[2]"));
 		Thread.sleep(2000);
-	    if(AllergyModfriestad.isDisplayed())
-	    {
-	    	System.out.println("GoRun Module BigBanner ad present");
-	    	System.out.println("GoRun Module BigBanner ad present and size is"+AllergyModfriestad.getSize());
-	    	ScreenShot("GoRun Module BigBanner ad","Passed");
-	    	System.out.println("took the GoRun Module BigBanner adscreenshot");
-	    }		    		  	
+		if(AllergyModfriestad.isDisplayed())
+		{
+			System.out.println("GoRun Module BigBanner ad present");
+			System.out.println("GoRun Module BigBanner ad present and size is"+AllergyModfriestad.getSize());
+			ScreenShot("GoRun Module BigBanner ad","Passed");
+			System.out.println("took the GoRun Module BigBanner adscreenshot");
+		}		    		  	
 	}
 	catch(Exception e)
 	{		
 		ScreenShot("GoRun Module BigBanner ad","Failed");
 		System.out.println("took the failed GoRun Module BigBanner ad");
 		Assert.fail("GoRun Module BigBanner adnot present");
-		}
+	}
 	}
 	public static void Check_submodules_news_ad() throws Exception
 	{ 
 		try
 		{
-			System.out.println("Checking for News Submodule  ad");
+			logStep("Checking for News Submodule ad");
+			System.out.println("Checking for News Submodule ad");
 			Thread.sleep(5000);
 			//WebElement submodulead=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[4]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ViewSwitcher[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]"));
 			//WebElement submodulead =Ad.findElementById("com.weather.Weather:id/ad_view_holder");
@@ -955,27 +998,32 @@ public class AppiumFunctions extends Drivers{
 			//WebElement submodulead=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]");
 			WebElement submodulead;
 			try{
-			 submodulead=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout[1]");
-			Thread.sleep(2000);
-		}
-		catch(Exception e)
-		{
-			submodulead=Ad.findElementById("com.weather.Weather:id/ad_view_holder");
-			Thread.sleep(2000);
-		}
+				submodulead=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout[1]");
+				Thread.sleep(2000);
+			}
+			catch(Exception e)
+			{
+				submodulead=Ad.findElementById("com.weather.Weather:id/ad_view_holder");
+				Thread.sleep(2000);
+			}
 			Thread.sleep(2000);
 			if(submodulead.isDisplayed())
 			{
-				System.out.println("Newssubmodule ad present");
-				System.out.println("News submodule ad present ad present and size is"+submodulead.getSize());
+				logStep("Newssubmodule ad present");
+				System.out.println("News submodule ad present");
+				//System.out.println("News submodule ad present ad present and size is"+submodulead.getSize());
 				ScreenShot("News ad","Passed");
+				logStep("took the passed submoduleAd_News screenshot");
 				System.out.println("took the submoduleAd_News screenshot");
 			}		    
 
 		}
 		catch(Exception e)
 		{
+			logStep("Newssubmodule ad not present");
 			ScreenShot("News ad","Failed");
+			attachScreen();
+			logStep("took the failed submoduleAd_News screenshot");
 			System.out.println("took the failed submoduleAd_News screenshot");
 			Assert.fail("News submodule ad is not  present");
 		}

@@ -1,0 +1,126 @@
+{
+  "time" : {
+    "start" : 1516635762853,
+    "stop" : 1516636247827,
+    "duration" : 484974
+  },
+  "testSuites" : [ {
+    "uid" : "e933cb0e5379b13d",
+    "name" : "Suite : Test",
+    "title" : "Suite : Test",
+    "time" : {
+      "start" : 1516635762853,
+      "stop" : 1516636247827,
+      "duration" : 484974
+    },
+    "statistic" : {
+      "total" : 9,
+      "passed" : 8,
+      "pending" : 0,
+      "canceled" : 0,
+      "failed" : 1,
+      "broken" : 0
+    },
+    "description" : null,
+    "testCases" : [ {
+      "uid" : "3d4b6a99d98f409d",
+      "name" : "Validating_feed1",
+      "title" : "Validating feed_1 Ad call",
+      "time" : {
+        "start" : 1516635762853,
+        "stop" : 1516635803142,
+        "duration" : 40289
+      },
+      "severity" : "NORMAL",
+      "status" : "PASSED"
+    }, {
+      "uid" : "3b6d11c1f1d1a938",
+      "name" : "Validating_feed2",
+      "title" : "Validating feed_2 Ad call",
+      "time" : {
+        "start" : 1516635803146,
+        "stop" : 1516635827602,
+        "duration" : 24456
+      },
+      "severity" : "NORMAL",
+      "status" : "PASSED"
+    }, {
+      "uid" : "183f1cda28936636",
+      "name" : "Validating_feed3",
+      "title" : "Validating feed_3 Ad call",
+      "time" : {
+        "start" : 1516635827604,
+        "stop" : 1516635906107,
+        "duration" : 78503
+      },
+      "severity" : "NORMAL",
+      "status" : "FAILED"
+    }, {
+      "uid" : "edbf0571779ac3f2",
+      "name" : "Validating_feed4",
+      "title" : "Validating feed_4 Ad call",
+      "time" : {
+        "start" : 1516635906108,
+        "stop" : 1516635918157,
+        "duration" : 12049
+      },
+      "severity" : "NORMAL",
+      "status" : "PASSED"
+    }, {
+      "uid" : "2755b054b59edcdd",
+      "name" : "Extended_News_page_Ad",
+      "title" : "Validating Extended News page Ad",
+      "time" : {
+        "start" : 1516635918160,
+        "stop" : 1516635996566,
+        "duration" : 78406
+      },
+      "severity" : "NORMAL",
+      "status" : "PASSED"
+    }, {
+      "uid" : "50023f572a72baa8",
+      "name" : "Validating_feed5",
+      "title" : "Validating feed_5 Ad call",
+      "time" : {
+        "start" : 1516635996568,
+        "stop" : 1516636039140,
+        "duration" : 42572
+      },
+      "severity" : "NORMAL",
+      "status" : "PASSED"
+    }, {
+      "uid" : "614be7cabc07230a",
+      "name" : "Extended_hourly_page_Ad",
+      "title" : "Validating Extended hourly page Ad",
+      "time" : {
+        "start" : 1516636039142,
+        "stop" : 1516636206836,
+        "duration" : 167694
+      },
+      "severity" : "NORMAL",
+      "status" : "PASSED"
+    }, {
+      "uid" : "7ef8bbfe1f8bfddb",
+      "name" : "Extended_Daily_page_Ad",
+      "title" : "Validating Extended Daily page Ad",
+      "time" : {
+        "start" : 1516636207167,
+        "stop" : 1516636227087,
+        "duration" : 19920
+      },
+      "severity" : "NORMAL",
+      "status" : "PASSED"
+    }, {
+      "uid" : "61c2b49550bd70e0",
+      "name" : "Extended_Maps_Radar_page_Ad",
+      "title" : "Validating Extended Maps&Radar page Ad",
+      "time" : {
+        "start" : 1516636227090,
+        "stop" : 1516636247827,
+        "duration" : 20737
+      },
+      "severity" : "NORMAL",
+      "status" : "PASSED"
+    } ]
+  } ]
+}

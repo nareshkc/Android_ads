@@ -11,10 +11,15 @@
   <url>http://maven.apache.org</url>
   
    <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <allure.version>1.4.16</allure.version>
-    <aspectj.version>1.8.5</aspectj.version>
-  </properties>
+		<aspectj.version>1.8.13</aspectj.version>
+		<allure.version>1.5.4</allure.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- </properties> -->
+
+		<!-- <properties> -->
+		<suiteXmlFile>testng.xml</suiteXmlFile>
+		<skipTests>false</skipTests>
+	</properties>
 
   <dependencies>
     <dependency>

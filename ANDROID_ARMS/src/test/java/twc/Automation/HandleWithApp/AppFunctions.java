@@ -620,7 +620,9 @@ public class AppFunctions extends Drivers{
 			Boolean b=verifyElement(By.id("com.weather.Weather:id/hourly_more"));
 			if(b==true)
 			{
+				logStep("Hourly page is presented on the screen");		
 				Ad.findElementById("com.weather.Weather:id/hourly_more").click();
+				logStep("clicked the hourly page link");
 				AppiumFunctions.Check_submodules_Hourly_ad();
 				Ad.findElementByClassName("android.widget.ImageButton").click();
 				Thread.sleep(5000);
@@ -648,7 +650,9 @@ public class AppFunctions extends Drivers{
 			Boolean b=verifyElement(By.id("com.weather.Weather:id/daily_more"));
 			if(b==true)
 			{
+				logStep("Daily page is presented on the screen");
 				Ad.findElementById("com.weather.Weather:id/daily_more").click();
+				logStep("clicked the Daily page link");
 				AppiumFunctions.Check_submodules_Daily_ad();
 				Ad.findElementByClassName("android.widget.ImageButton").click();
 				Thread.sleep(5000);				
@@ -675,13 +679,17 @@ public class AppFunctions extends Drivers{
 	
 			if(b==true)
 			{
+				logStep("Maps page is presented on the screen");
 				try
 				{
+				
 				Ad.findElementById("com.weather.Weather:id/map_module_thumbnail").click();
+				logStep("clicked the Daily page link");
 				}
 				catch(Exception e)
 				{
 					Ad.findElementById("com.weather.Weather:id/map_module_more").click();
+					logStep("clicked the Daily page link");
 				}
 				AppiumFunctions.Check_submodules_Maps_ad();
 				Ad.findElementByClassName("android.widget.ImageButton").click();
@@ -1629,8 +1637,8 @@ public static void goToTestModeSettings(String excel_sheet_name) throws Exceptio
 						Ad.findElementById("com.weather.Weather:id/news_grid_item_0").click();
 						//AppiumFunctions.Check_submodules_news_ad();
 						//Ad.findElementByClassName("android.widget.ImageButton").click();
-						Thread.sleep(5000);						
-						break;
+						//Thread.sleep(5000);
+	 					break;
 					}
 					else
 					{

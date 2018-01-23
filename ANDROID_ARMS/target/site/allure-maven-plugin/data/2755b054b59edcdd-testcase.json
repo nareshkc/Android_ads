@@ -1,0 +1,149 @@
+{
+  "uid" : "2755b054b59edcdd",
+  "name" : "Extended_News_page_Ad",
+  "title" : "Validating Extended News page Ad",
+  "time" : {
+    "start" : 1516635918160,
+    "stop" : 1516635996566,
+    "duration" : 78406
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 6
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "e933cb0e5379b13d",
+    "name" : "Suite : Test",
+    "title" : "Suite : Test"
+  },
+  "steps" : [ {
+    "name" : "logStep[Validating Extended News page Ad TestCase Started]",
+    "title" : "Validating Extended News page Ad TestCase Started",
+    "time" : {
+      "start" : 1516635918160,
+      "stop" : 1516635918160,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "logStep[Scroll the app to news Module]",
+    "title" : "Scroll the app to news Module",
+    "time" : {
+      "start" : 1516635918161,
+      "stop" : 1516635918161,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "logStep[Checking for News Submodule ad]",
+    "title" : "Checking for News Submodule ad",
+    "time" : {
+      "start" : 1516635919392,
+      "stop" : 1516635919392,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "logStep[Newssubmodule ad present]",
+    "title" : "Newssubmodule ad present",
+    "time" : {
+      "start" : 1516635988862,
+      "stop" : 1516635988862,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "logStep[took the passed submoduleAd_News screenshot]",
+    "title" : "took the passed submoduleAd_News screenshot",
+    "time" : {
+      "start" : 1516635992584,
+      "stop" : 1516635992584,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "logStep[Clicking on backbuton]",
+    "title" : "Clicking on backbuton",
+    "time" : {
+      "start" : 1516635992584,
+      "stop" : 1516635992584,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "testSuite",
+    "value" : "Suite"
+  }, {
+    "name" : "language",
+    "value" : "JAVA"
+  }, {
+    "name" : "testGroup",
+    "value" : "Test"
+  }, {
+    "name" : "thread",
+    "value" : "4909@Macminis-Mac-mini.local.main(1)"
+  }, {
+    "name" : "suite-name",
+    "value" : "Suite : Test"
+  }, {
+    "name" : "host",
+    "value" : "Macminis-Mac-mini.local"
+  }, {
+    "name" : "framework",
+    "value" : "TestNG"
+  }, {
+    "name" : "testMethod",
+    "value" : "Extended_News_page_Ad"
+  }, {
+    "name" : "suite-title",
+    "value" : "Suite : Test"
+  }, {
+    "name" : "testClass",
+    "value" : "ANDROID_ARMS.ANDROID_ARMS.FeedAdVAlidationonUI"
+  } ],
+  "parameters" : [ ]
+}

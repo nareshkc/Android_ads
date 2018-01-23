@@ -6,14 +6,6 @@
       <class name="ANDROID_ARMS.ANDROID_ARMS.FeedAdVAlidationonUI">
         <methods>
           <include name="Validating_feed3"/>
-          <include name="Extended_Daily_page_Ad"/>
-          <include name="Extended_Maps_Radar_page_Ad"/>
-          <include name="Validating_feed2"/>
-          <include name="Extended_hourly_page_Ad"/>
-          <include name="Health_Allergy_page_Ad"/>
-          <include name="HealthCold_Flu_page_Ad"/>
-          <include name="Validating_feed4"/>
-          <include name="Validating_feed1"/>
           <include name="Before_Test"/>
           <include name="End_Test"/>
         </methods>

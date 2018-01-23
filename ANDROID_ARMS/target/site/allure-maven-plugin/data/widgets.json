@@ -1,0 +1,59 @@
+{
+  "hash" : "e7105c43ada45c9f6e0006854ef1a1d95249231d",
+  "plugins" : {
+    "total" : {
+      "statistic" : {
+        "total" : 9,
+        "passed" : 8,
+        "pending" : 0,
+        "canceled" : 0,
+        "failed" : 1,
+        "broken" : 0
+      },
+      "time" : {
+        "start" : 1516635762853,
+        "stop" : 1516636247827,
+        "duration" : 484974
+      }
+    },
+    "defects" : {
+      "totalCount" : 1,
+      "items" : [ {
+        "count" : 1,
+        "uid" : "3378deb56c07b7cd",
+        "message" : "AssertionError: feed3 ad not present",
+        "status" : "FAILED"
+      } ]
+    },
+    "xunit" : {
+      "totalCount" : 1,
+      "items" : [ {
+        "uid" : "e933cb0e5379b13d",
+        "title" : "Suite : Test",
+        "statistic" : {
+          "total" : 9,
+          "passed" : 8,
+          "pending" : 0,
+          "canceled" : 0,
+          "failed" : 1,
+          "broken" : 0
+        }
+      } ]
+    },
+    "behaviors" : {
+      "totalCount" : 1,
+      "items" : [ {
+        "title" : "Without feature",
+        "statistic" : {
+          "total" : 9,
+          "passed" : 8,
+          "pending" : 0,
+          "canceled" : 0,
+          "failed" : 1,
+          "broken" : 0
+        }
+      } ]
+    },
+    "environment" : [ ]
+  }
+}

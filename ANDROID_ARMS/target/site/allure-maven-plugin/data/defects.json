@@ -1,0 +1,29 @@
+{
+  "defectsList" : [ {
+    "title" : "Product defects",
+    "status" : "FAILED",
+    "defects" : [ {
+      "uid" : "3378deb56c07b7cd",
+      "failure" : {
+        "message" : "AssertionError: feed3 ad not present",
+        "stackTrace" : "java.lang.AssertionError: feed3 ad not present\n\tat org.testng.Assert.fail(Assert.java:94)\n\tat twc.Automation.HandleWithAppium.AppiumFunctions.Check_feed3_ad(AppiumFunctions.java:429)\n\tat ANDROID_ARMS.ANDROID_ARMS.FeedAdVAlidationonUI.Validating_feed3(FeedAdVAlidationonUI.java:79)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)\n\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:659)\n\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)\n\tat org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)\n\tat org.testng.TestRunner.privateRun(TestRunner.java:771)\n\tat org.testng.TestRunner.run(TestRunner.java:621)\n\tat org.testng.SuiteRunner.runTest(SuiteRunner.java:357)\n\tat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)\n\tat org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)\n\tat org.testng.SuiteRunner.run(SuiteRunner.java:259)\n\tat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)\n\tat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)\n\tat org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)\n\tat org.testng.TestNG.runSuitesLocally(TestNG.java:1124)\n\tat org.testng.TestNG.run(TestNG.java:1032)\n\tat org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:73)\n\tat org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:94)\n\tat org.apache.maven.surefire.Surefire.run(Surefire.java:169)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.apache.maven.surefire.booter.SurefireBooter.runSuitesInProcess(SurefireBooter.java:350)\n\tat org.apache.maven.surefire.booter.SurefireBooter.main(SurefireBooter.java:1021)\n"
+      },
+      "testCases" : [ {
+        "uid" : "183f1cda28936636",
+        "name" : "Validating_feed3",
+        "title" : "Validating feed_3 Ad call",
+        "time" : {
+          "start" : 1516635827604,
+          "stop" : 1516635906107,
+          "duration" : 78503
+        },
+        "severity" : "NORMAL",
+        "status" : "FAILED"
+      } ]
+    } ]
+  }, {
+    "title" : "Test defects",
+    "status" : "BROKEN",
+    "defects" : [ ]
+  } ]
+}

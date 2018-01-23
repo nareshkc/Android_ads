@@ -1,0 +1,134 @@
+{
+  "uid" : "50023f572a72baa8",
+  "name" : "Validating_feed5",
+  "title" : "Validating feed_5 Ad call",
+  "time" : {
+    "start" : 1516635996568,
+    "stop" : 1516636039140,
+    "duration" : 42572
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 5
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "e933cb0e5379b13d",
+    "name" : "Suite : Test",
+    "title" : "Suite : Test"
+  },
+  "steps" : [ {
+    "name" : "logStep[Validating the feed_5 test case started]",
+    "title" : "Validating the feed_5 test case started",
+    "time" : {
+      "start" : 1516635996569,
+      "stop" : 1516635996569,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "logStep[scroll the app to feed_5 ad]",
+    "title" : "scroll the app to feed_5 ad",
+    "time" : {
+      "start" : 1516635996569,
+      "stop" : 1516635996569,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "logStep[Checking for feed5 ad]",
+    "title" : "Checking for feed5 ad",
+    "time" : {
+      "start" : 1516636008689,
+      "stop" : 1516636008689,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "logStep[feed5 ad present]",
+    "title" : "feed5 ad present",
+    "time" : {
+      "start" : 1516636010864,
+      "stop" : 1516636010864,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "logStep[took the passed feed_5 screenshot]",
+    "title" : "took the passed feed_5 screenshot",
+    "time" : {
+      "start" : 1516636014065,
+      "stop" : 1516636014065,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "testSuite",
+    "value" : "Suite"
+  }, {
+    "name" : "language",
+    "value" : "JAVA"
+  }, {
+    "name" : "testGroup",
+    "value" : "Test"
+  }, {
+    "name" : "thread",
+    "value" : "4909@Macminis-Mac-mini.local.main(1)"
+  }, {
+    "name" : "suite-name",
+    "value" : "Suite : Test"
+  }, {
+    "name" : "host",
+    "value" : "Macminis-Mac-mini.local"
+  }, {
+    "name" : "framework",
+    "value" : "TestNG"
+  }, {
+    "name" : "testMethod",
+    "value" : "Validating_feed5"
+  }, {
+    "name" : "suite-title",
+    "value" : "Suite : Test"
+  }, {
+    "name" : "testClass",
+    "value" : "ANDROID_ARMS.ANDROID_ARMS.FeedAdVAlidationonUI"
+  } ],
+  "parameters" : [ ]
+}
