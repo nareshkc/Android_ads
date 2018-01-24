@@ -93,7 +93,7 @@ public class FeedAdVAlidationonUI
 						AppiumFunctions.Check_feed4_ad();
 						System.out.println("====== Validating feed_4 Ad TestCase End =======");
 					}
-					@Test(priority =5,enabled = true)
+					/*@Test(priority =5,enabled = true)
 					@Title("Validating Extended News page Ad")
 					public void Extended_News_page_Ad() throws Exception
 					{ 
@@ -105,9 +105,9 @@ public class FeedAdVAlidationonUI
 					   AppiumFunctions.Check_submodules_news_ad();
 					   AppiumFunctions.Clickon_Back_Button();
 					   System.out.println("====== Validating Extended News page Ad TestCase End =======");
-					}
+					}*/
 					//Validating feed_5 Ad
-					@Test(priority =6,enabled = true)
+					/*@Test(priority =6,enabled = true)
 					@Title("Validating feed_5 Ad call")
 					public void Validating_feed5() throws Exception
 					{	logStep("Validating the feed_5 test case started");
@@ -118,7 +118,7 @@ public class FeedAdVAlidationonUI
 						AppiumFunctions.Check_feed5_ad();
 						AppFunctions.Kill_Launch_App();
 						System.out.println("====== Validating feed_5 Ad TestCase End =======");
-					}
+					}*/
 					//Validating Extended hourly page Ad
 					@Test(priority =7,enabled = true)
 					@Title("Validating Extended hourly page Ad")
