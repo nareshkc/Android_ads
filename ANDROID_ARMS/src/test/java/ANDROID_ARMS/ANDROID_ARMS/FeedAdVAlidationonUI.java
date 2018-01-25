@@ -74,7 +74,7 @@ public class FeedAdVAlidationonUI
 						System.out.println("====== Validating feed_3 Ad TestCase Started =======");
 						//scroll app to feed_3
 						logStep("Scroll the app to feed3 ad");
-						AppFunctions.SwipeUp_Counter(2);
+						AppFunctions.SwipeUp_Counter(1);
 						//checking the feed_3 ad is coming or not
 						AppiumFunctions.Check_feed3_ad();
 						System.out.println("====== Validating feed_3 Ad TestCase End =======");
