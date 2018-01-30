@@ -32,12 +32,16 @@ public class AppiumFunctions extends Drivers{
 	public static SoftAssert softAssert = new SoftAssert();
 	public static File folder=null;
 	public static String ScreenShot=System.getProperty("user.dir")+"/Screenshots";
-	public static void killADB() throws IOException{
+	public static void killADB() throws IOException, Exception{
 		String[] command ={"/usr/bin/killall","-KILL","adb"};
 		Runtime.getRuntime().exec(command); 
 
 		String[] command1 ={"/usr/bin/killall","-KILL","-9 adb"}; 
 		Runtime.getRuntime().exec(command1);
+		
+		Thread.sleep(5000);
+		String[] command2 ={"/usr/bin/adb","start-server"}; 
+		Runtime.getRuntime().exec(command2);
 	}
 
 	public static void UnInstallApp() throws Exception{
