@@ -128,12 +128,12 @@ public class FeedAdVAlidationonUI
 						System.out.println("====== Validating Extended Hourly page Ad TestCase Started =======");
 						try{
 							logStep("kill and launch the app");
-							AppFunctions.Kill_Launch_App();
+							//AppFunctions.Kill_Launch_App();
 							}
 							catch(Exception e)
 							{
 								logStep("kill and launch the app");
-								AppFunctions.Kill_Launch_App();
+								//AppFunctions.Kill_Launch_App();
 							}
 						//scroll to hourly submodule and checking the hourly submodule ad is coming or not
 						logStep("Scroll the app till hourly page");
