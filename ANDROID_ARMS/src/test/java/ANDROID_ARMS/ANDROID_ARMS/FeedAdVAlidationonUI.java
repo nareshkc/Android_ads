@@ -173,7 +173,7 @@ public class FeedAdVAlidationonUI
 						 //AppFunctions.Kill_Launch_App();
 						 System.out.println("====== Validating Extended Maps&Radar page Ad TestCase End =======");	    
 					}
-					@Test(priority =10,enabled = true)
+					/*@Test(priority =10,enabled = true)
 					@Title("Validating Extended News page Ad")
 					public void Extended_News_page_Ad() throws Exception
 					{ 
@@ -185,7 +185,7 @@ public class FeedAdVAlidationonUI
 					   AppiumFunctions.Check_submodules_news_ad();
 					   AppiumFunctions.Clickon_Back_Button();
 					   System.out.println("====== Validating Extended News page Ad TestCase End =======");
-					}
+					}*/
 							 
 					/* @Test(priority =9,enabled = true)
 						@Title("Validating Extended News page Ad")
