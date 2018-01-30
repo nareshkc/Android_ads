@@ -128,12 +128,12 @@ public class FeedAdVAlidationonUI
 						System.out.println("====== Validating Extended Hourly page Ad TestCase Started =======");
 						try{
 							logStep("kill and launch the app");
-							//AppFunctions.Kill_Launch_App();
+							AppFunctions.Kill_Launch_App();
 							}
 							catch(Exception e)
 							{
 								logStep("kill and launch the app");
-								//AppFunctions.Kill_Launch_App();
+								AppFunctions.Kill_Launch_App();
 							}
 						//scroll to hourly submodule and checking the hourly submodule ad is coming or not
 						logStep("Scroll the app till hourly page");
@@ -159,10 +159,32 @@ public class FeedAdVAlidationonUI
 					{
 						 logStep("Validating Extended Maps&Radar page Ad TestCase Started");
 						 System.out.println("====== Validating Extended Maps&Radar page Ad TestCase Started =======");
+						 try{
+							logStep("kill and launch the app");
+							AppFunctions.Kill_Launch_App();
+							}
+							catch(Exception e)
+							{
+								logStep("kill and launch the app");
+								AppFunctions.Kill_Launch_App();
+							}
 						 logStep("Scroll the app till Maps page");
 						 AppFunctions.SwipeUp_Counter_Maps_submodule();
 						 //AppFunctions.Kill_Launch_App();
 						 System.out.println("====== Validating Extended Maps&Radar page Ad TestCase End =======");	    
+					}
+					@Test(priority =10,enabled = true)
+					@Title("Validating Extended News page Ad")
+					public void Extended_News_page_Ad() throws Exception
+					{ 
+					   logStep("Validating Extended News page Ad TestCase Started");
+					   System.out.println("====== Validating Extended News page Ad TestCase Started =======");
+					   //scroll to news submodule and checking the News submodule ad is coming or not	
+					   logStep("Scroll the app to news Module");
+					   AppFunctions.SwipeUp_Counter_news_submodules();	
+					   AppiumFunctions.Check_submodules_news_ad();
+					   AppiumFunctions.Clickon_Back_Button();
+					   System.out.println("====== Validating Extended News page Ad TestCase End =======");
 					}
 							 
 					/* @Test(priority =9,enabled = true)
