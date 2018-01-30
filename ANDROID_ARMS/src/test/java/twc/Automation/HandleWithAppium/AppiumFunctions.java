@@ -204,7 +204,7 @@ public class AppiumFunctions extends Drivers{
 	@SuppressWarnings("rawtypes")
 	public static void LaunchAppWithFullReset() throws Exception{
 
-		killADB();
+		//killADB();
 		AppiumServerStop();
 		AppiumServerStart();
 
