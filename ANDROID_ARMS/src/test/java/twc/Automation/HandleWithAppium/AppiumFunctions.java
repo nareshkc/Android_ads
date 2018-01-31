@@ -179,7 +179,10 @@ public class AppiumFunctions extends Drivers{
 				capabilities.setCapability(capabilitydata[12][0],capabilitydata[12][Cap]);
 				capabilities.setCapability(capabilitydata[13][0],capabilitydata[13][Cap]);
 				capabilities.setCapability(capabilitydata[14][0],capabilitydata[14][Cap]);
+				capabilities.setCapability("automationName","UiAutomator2");
+			    Thread.sleep(30000);
 				Ad = new AndroidDriver(new URL(capabilitydata[15][Cap]), capabilities);
+				Thread.sleep(30000);
 			}
 			/* ---End Android Device Capabilities --- */
 			Ad.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
