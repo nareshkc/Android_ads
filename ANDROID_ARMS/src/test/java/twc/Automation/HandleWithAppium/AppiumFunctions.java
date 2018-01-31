@@ -234,7 +234,8 @@ public class AppiumFunctions extends Drivers{
 			System.out.println("App : "+capabilitydata[10][Cap]);
 			capabilities.setCapability(capabilitydata[13][0],capabilitydata[13][Cap]);
 			capabilities.setCapability(capabilitydata[14][0],capabilitydata[14][Cap]);
-			//Thread.sleep(50000);
+			capabilities.setCapability("automationName","UiAutomator2");
+			Thread.sleep(50000);
 			Ad = new AndroidDriver(new URL(capabilitydata[15][Cap]), capabilities);
 			Thread.sleep(50000);
 		}
