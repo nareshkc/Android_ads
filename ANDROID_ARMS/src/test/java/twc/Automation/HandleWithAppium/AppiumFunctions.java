@@ -37,11 +37,9 @@ public class AppiumFunctions extends Drivers{
 		Runtime.getRuntime().exec(command); 
 
 		String[] command1 ={"/usr/bin/killall","-KILL","-9 adb"}; 
-		Runtime.getRuntime().exec(command1);
-		
+		Runtime.getRuntime().exec(command1);		
 		Thread.sleep(5000);
-		String[] command2 ={"/usr/bin/adb","start-server"}; 
-		Runtime.getRuntime().exec(command2);
+		
 	}
 
 	public static void UnInstallApp() throws Exception{
