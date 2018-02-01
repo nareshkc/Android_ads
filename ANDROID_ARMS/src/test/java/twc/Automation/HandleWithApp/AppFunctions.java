@@ -1628,16 +1628,16 @@ public static void goToTestModeSettings(String excel_sheet_name) throws Exceptio
 
 				for(int i=1;i<=12 ;i++){
 					
-					//Swipe();
+					Swipe();
 					
 					
 					Boolean b=verifyElement(By.id("com.weather.Weather:id/news_title"));
 					if(b==true)
 					{
 						Ad.findElementById("com.weather.Weather:id/news_grid_item_0").click();
-						//AppiumFunctions.Check_submodules_news_ad();
-						//Ad.findElementByClassName("android.widget.ImageButton").click();
-						//Thread.sleep(5000);
+						AppiumFunctions.Check_submodules_news_ad();
+						Ad.findElementByClassName("android.widget.ImageButton").click();
+						Thread.sleep(5000);
 	 					break;
 					}
 					else
