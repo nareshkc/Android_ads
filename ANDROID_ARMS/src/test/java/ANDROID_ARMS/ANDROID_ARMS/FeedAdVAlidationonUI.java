@@ -278,6 +278,8 @@ public class FeedAdVAlidationonUI
 	{
 		
 		CharlesFunctions.StopExportSessionXMLFile();
+		logStep("Clearing the charles session");
+		 CharlesFunctions.ClearSessions();
 	
 		//Ad.quit();
 	}
