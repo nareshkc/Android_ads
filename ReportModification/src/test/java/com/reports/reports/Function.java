@@ -73,7 +73,7 @@ public class Function {
 			String projDir = System.getProperty("user.dir");
 			File sourceFile,destinationFile = null;
 			String Destination_File=null;
-			String SourcePath="/Users/macmini/.jenkins/workspace/ReportModify_Android/Allure_Style/";
+			String SourcePath="/Users/macmini/.jenkins/workspace/Report_Android/ReportModification/Allure_Style/";
 					//"/Users/macmini/.jenkins/workspace/ReportModify_Android/Allure_Style/";
 			String DestinationPath=destDir+"allure-report/";
 			List<String> get_content_file_name = listFiles(SourcePath);
