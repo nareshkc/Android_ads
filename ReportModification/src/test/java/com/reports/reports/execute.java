@@ -29,7 +29,7 @@ public class execute {
 		driver.manage().window().maximize();
 		WebElement Build= driver.findElement(By.xpath("//*[@id='content']/div/div[2]/div/div[2]/div[3]/div[2]/div/div/span/div[2]/a"));
 		Function.BuildNo =   Build.getText().replaceAll("Android-ARMS #", "");
-		Function.BuildNo="300";
+		//Function.BuildNo="300";
 		System.out.println("Execution on Build : "+Function.BuildNo);
 		Function.destDir= "/Users/macmini/.jenkins/jobs/Android-ARMS/builds/"+Function.BuildNo+"/archive/";
 		String zipFilePath="/Users/macmini/.jenkins/jobs/Android_ARMS/builds/"+Function.BuildNo+"/archive/allure-report.zip";
