@@ -74,7 +74,7 @@ public class FeedAdVAlidationonUI
 						System.out.println("====== Validating feed_3 Ad TestCase Started =======");
 						//scroll app to feed_3
 						logStep("Scroll the app to feed3 ad");
-						AppFunctions.SwipeUp_Counter(1);
+						AppFunctions.SwipeUp_Counter(2);
 						//checking the feed_3 ad is coming or not
 						AppiumFunctions.Check_feed3_ad();
 						System.out.println("====== Validating feed_3 Ad TestCase End =======");
@@ -89,7 +89,7 @@ public class FeedAdVAlidationonUI
 						System.out.println("====== Validating feed_4 Ad TestCase Started =======");
 						//checking the feed_4 ad is coming or not
 						logStep("scroll the app to feed_4");
-						AppFunctions.SwipeUp_Counter(1);
+						AppFunctions.SwipeUp_Counter(2);
 						AppiumFunctions.Check_feed4_ad();
 						System.out.println("====== Validating feed_4 Ad TestCase End =======");
 					}
