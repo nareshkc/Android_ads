@@ -189,7 +189,30 @@ public class FeedAdVAlidationonUI
 					}
 					
 					
-					//Validating cold & flu Ad
+					/*@Test(priority =10,enabled = true)
+					@Title("Validating Extended News page Ad")
+					public void Extended_News_page_Ad() throws Exception
+					{ 
+					   logStep("Validating Extended News page Ad TestCase Started");
+					   System.out.println("====== Validating Extended News page Ad TestCase Started =======");
+					   //scroll to news submodule and checking the News submodule ad is coming or not	
+					   logStep("Scroll the app to news Module");
+					   AppFunctions.SwipeUp_Counter_news_submodules();	
+					   AppiumFunctions.Check_submodules_news_ad();
+					   AppiumFunctions.Clickon_Back_Button();
+					   System.out.println("====== Validating Extended News page Ad TestCase End =======");
+					}*/
+							 
+					/* @Test(priority =9,enabled = true)
+						@Title("Validating Extended News page Ad")
+						public void Extended_Newss_page_Ad() throws Exception
+						{
+						   System.out.println("====== Validating Extended News page Ad TestCase Started =======");
+						   //scroll to news submodule and checking the News submodule ad is coming or not	
+						   AppFunctions.SwipeUp_Counter_news_submodules();	
+						   System.out.println("====== Validating Extended News page Ad TestCase End =======");
+						}*/
+					/*   //Validating cold & flu Ad
 						@Test(priority =10,enabled = true)
 						 @Title("Validating Extended cold & flu page Ad")
 						 public void Extended_cold_flu_page_Ad() throws Exception
@@ -198,14 +221,12 @@ public class FeedAdVAlidationonUI
 							 AppFunctions.Kill_Launch_App();
 							 AppFunctions.Change_to_Test_Mode("TestMode");
 							 AppFunctions.Kill_Launch_App();
-							 AppFunctions.Kill_Launch_App();
-							 AppFunctions.Kill_Launch_App();
 							 AppFunctions.SwipeUp_Counter_lifestyle_submodule();
-							 AppFunctions.SwipeUp_Counter(2);
-							 AppiumFunctions.Check_Cold_Flu_BigbannertAd();
+							 AppiumFunctions.Check_Cold_Flu_spotAd();
+							 //AppFunctions.SwipeUp_Counter(2);
+							 //AppiumFunctions.Check_Cold_Flu_BigbannertAd();
 							 AppiumFunctions.Clickon_Back_Button();
 							 System.out.println("====== Validating Extended cold & flu TestCase  page Ad TestCase End =======");	    
-							
 						}
 						
 						//Validating Allergy Ad
@@ -216,25 +237,23 @@ public class FeedAdVAlidationonUI
 							 System.out.println("====== Validating Extended allergy TestCase Started =======");
 							 AppiumFunctions.clickallergy();
 							 AppiumFunctions.Check_Allergy_spotAd();
-							 AppFunctions.SwipeUp_Counter(2);
-							AppiumFunctions.Check_Allergy_BigbannerAd();
+							 //AppFunctions.SwipeUp_Counter(2);
+							 //AppiumFunctions.Check_Allergy_BigbannerAd();
 							 AppiumFunctions.Clickon_Back_Button();
 							 System.out.println("====== Validating Extended allergy TestCase End =======");	    
 						}
 							
 						//Validating GoRunAd 
-						/*@Test(priority =12,enabled = true)
+						@Test(priority =12,enabled = true)
 						 @Title("Validating Extended GoRun page Ad")
 						 public void Extended_GoRunhModule_page_Ad() throws Exception
 						{
 							 System.out.println("====== Validating Extended GoRun TestCase Started =======");
 							 AppiumFunctions.clickGoRun();
 							 AppiumFunctions.Check_GoRun_spotAd();
-							 AppFunctions.SwipeUp_Counter(2);
-							 AppiumFunctions.Check_GoRun_BigbannerAd();
+							 //AppFunctions.SwipeUp_Counter(2);
+							 //AppiumFunctions.Check_GoRun_BigbannerAd();
 							 AppiumFunctions.Clickon_Back_Button();
-							 AppFunctions.Kill_Launch_App();
-							 AppFunctions.Change_to_Test_Mode("TestMode");
 							 System.out.println("====== Validating Extended allergy TestCase End =======");	    
 						}*/
 
