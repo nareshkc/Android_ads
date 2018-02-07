@@ -956,15 +956,9 @@ public class AppiumFunctions extends Drivers{
 			//WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]"));
 			//Thread.sleep(2000);
 			WebElement AllergyModfriestad;
-			try{
-				AllergyModfriestad=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout[1]");
+				AllergyModfriestad=	Ad.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.widget.ListView/android.widget.FrameLayout/android.widget.FrameLayout");
 				Thread.sleep(2000);
-			}
-			catch(Exception e)
-			{
-				AllergyModfriestad=Ad.findElementById("com.weather.Weather:id/ad_view_holder");
-				Thread.sleep(2000);
-			}
+			
 			if(AllergyModfriestad.isDisplayed())
 			{
 				System.out.println("GoRun Module spotlight ad present");
@@ -981,13 +975,14 @@ public class AppiumFunctions extends Drivers{
 		}
 	}
 
+
 	public static void Check_GoRun_BigbannerAd() throws Exception
 	{ try
 	{
 		System.out.println("Checking for GoRun module BigBanner ad");
 		Thread.sleep(5000);
 		//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
-		WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[2]"));
+		WebElement AllergyModfriestad=Ad.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.widget.ListView/android.widget.FrameLayout[2]"));
 		Thread.sleep(2000);
 		if(AllergyModfriestad.isDisplayed())
 		{

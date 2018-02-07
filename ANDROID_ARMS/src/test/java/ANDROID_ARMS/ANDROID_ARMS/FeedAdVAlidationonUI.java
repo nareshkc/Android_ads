@@ -224,6 +224,23 @@ public class FeedAdVAlidationonUI
 							 System.out.println("====== Validating Extended allergy TestCase End =======");	    
 						}
 					
+									
+					//Validating GoRunAd 
+						@Test(priority =13,enabled = true)
+						 @Title("Validating Extended GoRun page Ad")
+						 public void Extended_GoRunhModule_page_Ad() throws Exception
+						{
+							 System.out.println("====== Validating Extended GoRun TestCase Started =======");
+							 AppiumFunctions.clickGoRun();
+							 AppiumFunctions.Check_GoRun_spotAd();
+							 AppFunctions.SwipeUp_Counter(2);
+							 AppiumFunctions.Check_GoRun_BigbannerAd();
+							 AppiumFunctions.Clickon_Back_Button();
+							 AppFunctions.Kill_Launch_App();
+							 AppFunctions.Change_to_Test_Mode("TestMode");
+							 AppFunctions.Kill_Launch_App();
+							 System.out.println("====== Validating Extended allergy TestCase End =======");	    
+						}
 					/*@Test(priority =10,enabled = true)
 					@Title("Validating Extended News page Ad")
 					public void Extended_News_page_Ad() throws Exception
