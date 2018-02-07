@@ -1569,32 +1569,42 @@ public static void goToTestModeSettings(String excel_sheet_name) throws Exceptio
 			
 			
 			
-			public static void SwipeUp_Counter_lifestyle_submodule() throws Exception{
+	  public static void SwipeUp_Counter_lifestyle_submodule() throws Exception{
 
-				//int swipeup = Counter;
+		//int swipeup = Counter;
 
-				for(int i=1;i<=7 ;i++){
-					
-					Swipe();
-					
-					Boolean b=verifyElement(By.name("Health & Activities"));
-					if(b==true)
-					{
-						Ad.findElementById("com.weather.Weather:id/combo_item_name").click();
-						//AppiumFunctions.Check_Lifestyle_Module_ad();
-						//Ad.findElementByClassName("android.widget.ImageButton").click();
-						Thread.sleep(5000);				
-						break;
-					}
-					else
-					{
-						System.out.println("Module is not present scroll down");
-					}
+		for(int i=1;i<=7 ;i++){
 
-						
-					
+			Swipe();
+
+			//Boolean b=verifyElement(By.name("Health & Activities"));
+			Boolean b=verifyElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ListView/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.TextView"));
+			if(b==true)
+			{
+				try {
+					Ad.findElementByName("Cold & Flu").click();
+					Thread.sleep(1000);
 				}
+				catch(Exception e)
+				{
+					Ad.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ListView/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.TextView").click();
+					Thread.sleep(4000);
 				}
+				
+				AppiumFunctions.Check_Lifestyle_Module_ad();
+				//Ad.findElementByClassName("android.widget.ImageButton").click();
+				Thread.sleep(5000);				
+				break;
+			}
+			else
+			{
+				System.out.println("Module is not present scroll down");
+			}
+
+
+
+		}
+	}
 		
 			public static Boolean verifyElement(By by) {
 				try {

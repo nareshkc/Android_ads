@@ -189,6 +189,27 @@ public class FeedAdVAlidationonUI
 					}
 					
 					
+					
+					
+					 //Validating cold & flu Ad
+						@Test(priority =10,enabled = true)
+						 @Title("Validating Extended cold & flu page Ad")
+						 public void Extended_cold_flu_page_Ad() throws Exception
+						{
+							 System.out.println("====== Validating Extended cold & flu TestCase Started =======");
+							 AppFunctions.Kill_Launch_App();
+							 AppFunctions.Change_to_Test_Mode("TestMode");
+							 AppFunctions.Kill_Launch_App();
+							 AppFunctions.Kill_Launch_App();
+							 AppFunctions.Kill_Launch_App();
+							 AppFunctions.SwipeUp_Counter_lifestyle_submodule();
+							 AppFunctions.SwipeUp_Counter(2);
+							 AppiumFunctions.Check_Cold_Flu_BigbannertAd();
+							 AppiumFunctions.Clickon_Back_Button();
+							 System.out.println("====== Validating Extended cold & flu TestCase  page Ad TestCase End =======");	    
+							
+						}
+					
 					/*@Test(priority =10,enabled = true)
 					@Title("Validating Extended News page Ad")
 					public void Extended_News_page_Ad() throws Exception

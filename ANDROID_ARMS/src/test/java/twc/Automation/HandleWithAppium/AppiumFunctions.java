@@ -900,7 +900,7 @@ public class AppiumFunctions extends Drivers{
 		try{
 			System.out.println("Checking for Lifesyle module  ad");
 			Thread.sleep(5000);
-			WebElement submodulead=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]");
+			WebElement submodulead=	Ad.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ListView/android.widget.FrameLayout/android.widget.FrameLayout");
 			Thread.sleep(2000);
 
 			if(submodulead.isDisplayed())
