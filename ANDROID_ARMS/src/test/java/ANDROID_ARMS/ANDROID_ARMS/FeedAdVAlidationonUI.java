@@ -209,6 +209,20 @@ public class FeedAdVAlidationonUI
 							 System.out.println("====== Validating Extended cold & flu TestCase  page Ad TestCase End =======");	    
 							
 						}
+						
+						//Validating Allergy Ad
+						@Test(priority =12,enabled = true)
+						 @Title("Validating Extended allergy page Ad")
+						 public void Extended_HealthModule_page_Ad() throws Exception
+						{
+							 System.out.println("====== Validating Extended allergy TestCase Started =======");
+							 AppiumFunctions.clickallergy();
+							 AppiumFunctions.Check_Allergy_spotAd();
+							 AppFunctions.SwipeUp_Counter(2);
+							AppiumFunctions.Check_Allergy_BigbannerAd();
+							 AppiumFunctions.Clickon_Back_Button();
+							 System.out.println("====== Validating Extended allergy TestCase End =======");	    
+						}
 					
 					/*@Test(priority =10,enabled = true)
 					@Title("Validating Extended News page Ad")

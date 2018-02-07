@@ -743,7 +743,7 @@ public class AppiumFunctions extends Drivers{
 			//Thread.sleep(2000);
 			WebElement AllergyModfriestad;
 			try{
-				AllergyModfriestad=	Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout[1]");
+				AllergyModfriestad=	Ad.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.widget.ListView/android.widget.RelativeLayout");
 				Thread.sleep(2000);
 			}
 			catch(Exception e)
@@ -811,7 +811,7 @@ public class AppiumFunctions extends Drivers{
 			System.out.println("Checking for Allergy module BigBanner ad");
 			Thread.sleep(5000);
 			//WebElement feedad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
-			WebElement AllergyModfriestad=Ad.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.LinearLayout[1]/android.widget.ListView[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]"));
+			WebElement AllergyModfriestad=Ad.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.widget.ListView/android.widget.RelativeLayout"));
 			Thread.sleep(2000);
 			if(AllergyModfriestad.isDisplayed())
 			{
@@ -919,20 +919,29 @@ public class AppiumFunctions extends Drivers{
 			Assert.fail("Lifesyle module ad is not  present");
 		}
 	}
-	public static void clickallergy()
+	public static void clickallergy() throws Exception
 	{
-		Ad.findElementByName("Allergy").click();
+		try {
+			Ad.findElementByName("Allergy").click();
+			Thread.sleep(1000);
+		}
+		catch(Exception e)
+		{
+			Ad.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ListView/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.TextView").click();
+			Thread.sleep(1000);
+		}
+		
 	}
 
 	public static void clickGoRun() throws Exception
 	{
 		try{
-			Ad.findElementByName("Run Times").click();
+			Ad.findElementByName("GoRun").click();
 			Thread.sleep(3000);
 		}
 		catch(Exception e)
 		{
-			Ad.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ListView[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.support.v7.widget.RecyclerView[1]/android.widget.LinearLayout[3]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[2]").click();
+			Ad.findElementByName("Run Times").click();
 			Thread.sleep(3000);
 		}
 	}
