@@ -226,7 +226,7 @@ public class FeedAdVAlidationonUI
 					
 									
 					//Validating GoRunAd 
-						@Test(priority =13,enabled = true)
+						/*@Test(priority =13,enabled = true)
 						 @Title("Validating Extended GoRun page Ad")
 						 public void Extended_GoRunhModule_page_Ad() throws Exception
 						{
@@ -240,7 +240,7 @@ public class FeedAdVAlidationonUI
 							 AppFunctions.Change_to_Test_Mode("TestMode");
 							 AppFunctions.Kill_Launch_App();
 							 System.out.println("====== Validating Extended allergy TestCase End =======");	    
-						}
+						}*/
 					/*@Test(priority =10,enabled = true)
 					@Title("Validating Extended News page Ad")
 					public void Extended_News_page_Ad() throws Exception
