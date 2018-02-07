@@ -192,7 +192,7 @@ public class FeedAdVAlidationonUI
 					
 					
 					 //Validating cold & flu Ad
-						@Test(priority =10,enabled = true)
+						@Test(priority =11,enabled = true)
 						 @Title("Validating Extended cold & flu page Ad")
 						 public void Extended_cold_flu_page_Ad() throws Exception
 						{
@@ -204,7 +204,7 @@ public class FeedAdVAlidationonUI
 							 AppFunctions.Kill_Launch_App();
 							 AppFunctions.SwipeUp_Counter_lifestyle_submodule();
 							 AppFunctions.SwipeUp_Counter(2);
-							 AppiumFunctions.Check_Cold_Flu_BigbannertAd();
+							 //AppiumFunctions.Check_Cold_Flu_BigbannertAd();
 							 AppiumFunctions.Clickon_Back_Button();
 							 System.out.println("====== Validating Extended cold & flu TestCase  page Ad TestCase End =======");	    
 							
