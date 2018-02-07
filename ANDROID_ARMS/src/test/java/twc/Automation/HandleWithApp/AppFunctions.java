@@ -1130,61 +1130,81 @@ public class AppFunctions extends Drivers{
 	}
 	
 public static void Change_to_Test_Mode(String excel_sheet_name) throws Exception{
-		
+
 		logStep("Make Ads As Test From Test Mode Settings In Order To Get BB Ad Call");
 		logStep("TestMode Settings: 1) Click On Menu Button 2) Click On Settings 3) Click On About This App 4) Click 10 Times On App Version 5) TestMode Setting Enabled 6) Click On TestMode Settings 7) Click On Ads");
-		
+
 
 		DeviceStatus device_status = new DeviceStatus();
 		int Cap = device_status.Device_Status();
-		
+
 		String[][] exceldata = read_excel_data.exceldataread(excel_sheet_name);
-		
+
 		WebDriverWait wait = new WebDriverWait(Ad, 60);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.className(exceldata[2][Cap])));//settings button
-		
+
 		MobileElement menu = (MobileElement) Ad.findElement(By.className(exceldata[2][Cap]));
 		menu.click();
 		System.out.println("clicking on Menu option");
-		Ad.findElementByName(exceldata[5][Cap]).click(); 
+		Thread.sleep(4000);
+		try {
+			Ad.findElementByName(exceldata[5][Cap]).click(); 
+		}
+		catch(Exception e)
+		{
+			Ad.findElementById("com.weather.Weather:id/design_menu_item_layout_6").click();
+		}
 		System.out.println("clicking on settings option");
-		MobileElement aboutThisAPP = (MobileElement) Ad.findElementByName(exceldata[6][Cap]);//about this app
-		aboutThisAPP.click();
+		Thread.sleep(4000);
+		try {
+			Ad.findElementByName(exceldata[6][Cap]).click();;//about this app
+		}
+		catch(Exception e)
+		{
+			Ad.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ListView/android.widget.LinearLayout[5]/android.widget.RelativeLayout").click();
+		}
+		//aboutThisAPP.click();
 		System.out.println("clicking on about this app option");
 		System.out.println("tapping continously to get test mode option");	
-			for (int i=1; i<=8; i++){
-				Ad.findElementById(exceldata[18][Cap]).click();
-			}
-				Ad.findElementByName(exceldata[19][Cap]).click();
-				System.out.println("clicking on test mode settings");	
-				Ad.findElementByName(exceldata[20][Cap]).click();
-				System.out.println("clicking on ads option");	
-				Ad.findElementByName(exceldata[16][Cap]).click();
-				System.out.println("clicking on test option");	
-				logStep("changed Ads As Production To Test");
-				System.out.println("changed to Test Mode");
-				Thread.sleep(1000);
-				logStep("Kill And Relaunch The App");
-				//				Ad.closeApp();
-				//				System.out.println("Closed the app");
-								//Ad.launchApp();
-				//AppiumFunctions.Kill_launch();
-//				logStep("Kill And Relaunch The App");
-//				Ad.closeApp();
-////				System.out.println("Closed the app");
-//				Ad.launchApp();
-				//System.out.println("launching the app");
-				//AppiumFunctions.LaunchApp();
-				
-				try{
-					if((Ad.findElementByName("Allow")).isDisplayed()){
-						Ad.findElementByName("Allow").click();
-					}
-				}catch(Exception e){
-					System.out.println("Location already set");
-				}
-				
-				//System.out.println("launching the app");
+		for (int i=1; i<=8; i++){
+			Ad.findElementById(exceldata[18][Cap]).click();
+		}
+		Thread.sleep(4000);
+		try {
+			Ad.findElementByName(exceldata[19][Cap]).click();
+		}
+		catch(Exception e)
+		{
+			Ad.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ListView/android.widget.LinearLayout[5]/android.widget.RelativeLayout").click();
+		}
+		System.out.println("clicking on test mode settings");	
+
+		
+		try {
+			Ad.findElementByName("Airlock").click();
+		}
+		catch(Exception e)
+		{
+			Ad.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ListView/android.widget.LinearLayout[7]/android.widget.RelativeLayout/android.widget.TextView").click();
+		}
+		try {
+			Ad.findElementByName("User Groups").click();
+		}
+		catch(Exception e)
+		{
+			Ad.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ListView/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.TextView[1]").click();
+		}
+		Ad.findElementById("com.weather.Weather:id/search_bar").sendKeys("AdsTestAdUnitOnly");
+	    Thread.sleep(4000);
+	    try {
+			Ad.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.ListView/android.widget.CheckedTextView[1]").click();
+		}
+		catch(Exception e)
+		{
+			Ad.findElementById("android:id/text1").click();
+		}
+	    Thread.sleep(5000);
+		///hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.ListView/android.widget.CheckedTextView[1]
 	}
 	
 	
