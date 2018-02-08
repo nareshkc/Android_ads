@@ -192,7 +192,7 @@ public class FeedAdVAlidationonUI
 					
 					
 					 //Validating cold & flu Ad
-						@Test(priority =11,enabled = true)
+						/*@Test(priority =11,enabled = true)
 						 @Title("Validating Extended cold & flu page Ad")
 						 public void Extended_cold_flu_page_Ad() throws Exception
 						{
@@ -222,7 +222,7 @@ public class FeedAdVAlidationonUI
 							AppiumFunctions.Check_Allergy_BigbannerAd();
 							 AppiumFunctions.Clickon_Back_Button();
 							 System.out.println("====== Validating Extended allergy TestCase End =======");	    
-						}
+						}*/
 					
 									
 					//Validating GoRunAd 
