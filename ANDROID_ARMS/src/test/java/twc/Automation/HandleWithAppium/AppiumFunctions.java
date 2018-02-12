@@ -671,7 +671,8 @@ public class AppiumFunctions extends Drivers{
 	//read Build folder details from Build Folder
 	public static void CheckBuildFolder(File folder) throws Exception {
 		//readExcelValues.excelValues("Smoke","Paths");
-
+		String[][] capabilitydata = read_excel_data.exceldataread("Capabilities");
+		CharlesFunctions.ver = capabilitydata[16][2].toString();
 		String Foldername = ScreenShot+"/"+CharlesFunctions.ver;
 		folder = new File(Foldername);
 
