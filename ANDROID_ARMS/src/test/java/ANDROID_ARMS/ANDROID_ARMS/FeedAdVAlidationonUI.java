@@ -318,9 +318,9 @@ public class FeedAdVAlidationonUI
 		System.out.println("================= Before Test Started =========================");	
 		//AppiumFunctions.UnInstallApp();
 		CharlesFunctions.charlesOpen();
+		AppiumFunctions.CheckBuildFolder(AppiumFunctions.folder);
 		CharlesFunctions.openCharlesBrowser();
 		AppiumFunctions.delete_screenshots();
-		AppiumFunctions.CheckBuildFolder(AppiumFunctions.folder);
 		AppiumFunctions.LaunchAppWithFullReset();
 		
 		System.out.println("================= Before Test End =========================");

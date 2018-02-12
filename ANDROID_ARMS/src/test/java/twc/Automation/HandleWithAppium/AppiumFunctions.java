@@ -684,8 +684,8 @@ public class AppiumFunctions extends Drivers{
 				folder = new File(Foldername+"_"+i);
 			}
 			if(folder.exists()){
-				System.out.println("Build Number is exist "+CharlesFunctions.ver);
-				System.out.println("Folder is :"+folder.toString());
+				/*System.out.println("Build Number is exist "+CharlesFunctions.ver);
+				System.out.println("Folder is :"+folder.toString());*/
 
 			}else{
 				if(i==0){
