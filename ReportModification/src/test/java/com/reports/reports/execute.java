@@ -31,8 +31,8 @@ public class execute {
 		Function.BuildNo =   Build.getText().replaceAll("Android-ARMS #", "");
 		Function.BuildNo="300";
 		System.out.println("Execution on Build : "+Function.BuildNo);
-		Function.destDir= "/Users/macmini/.jenkins/jobs/Android-ARMS/builds/"+Function.BuildNo+"/archive/";
-		String zipFilePath="/Users/macmini/.jenkins/jobs/Android_ARMS/builds/"+Function.BuildNo+"/archive/allure-report.zip";
+		Function.destDir= "/Users/macmini/.jenkins/jobs/Android-ARMS_Automation/builds/"+Function.BuildNo+"/archive/";
+		String zipFilePath="/Users/macmini/.jenkins/jobs/Android-ARMS_Automation/builds/"+Function.BuildNo+"/archive/allure-report.zip";
 
 		driver.close();
 	}
